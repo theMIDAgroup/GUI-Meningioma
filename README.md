@@ -8,6 +8,8 @@ The code is based on the following publications:
 
 *2015 M. Vallières, C.R. Freeman, S.R. Skamene, I. El Naqa, “A radiomics model from joint FDG-PET and MRI texture features for the prediction of lung metastases in soft-tissue sarcomas of the extremities”, Phys Med Biol. 2015 Jul 21;60(14):5471-96. doi: 10.1088/0031-9155/60/14/5471.
 
+*2001 T. F. Chan and L. A. Vese, "Active contours without edges," in IEEE Transactions on Image Processing, vol. 10, no. 2, pp. 266-277, Feb. 2001, doi: 10.1109/83.902291.
+
 Usage:
 
 Code is written in Matlab R2021b and tested with versions up to R2019b.
