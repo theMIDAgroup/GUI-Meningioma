@@ -10,7 +10,7 @@ The code is based on the following publications:
 
 *2001 T. F. Chan and L. A. Vese, "Active contours without edges," in IEEE Transactions on Image Processing, vol. 10, no. 2, pp. 266-277, Feb. 2001, doi: 10.1109/83.902291.
 
-Usage:
+## Usage:
 
 Code is written in Matlab R2021b and tested with versions up to R2019b.
 main_gui_brain.m file launches a Matlab GUI for image visualization and ROI definition. It requires standard DICOM data. A second GUI will open when the segmentation algorithm has finished (see details on the comprehensive ReadMe file). Test data can be found in the "data test" folder.
