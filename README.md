@@ -1,5 +1,4 @@
 # GUI-Meningioma
-MATLAB/Python programming tools for image segmentation and radiomics analysis
 
 Matlab Graphic User Interface (GUI) for image visualization, segmentation and radiomics feature extraction for MRI images of meningioma patients. The feature extraction package has been directly taken from https://github.com/mvallieres/radiomics, with slight modifications for 2D analysis.  
 
