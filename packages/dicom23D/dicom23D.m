@@ -306,13 +306,4 @@ function [volume_image, slice_data, image_meta_data] = ...
     h = waitbar(0, 'Saving mat files...', 'WindowStyle', 'modal');
     waitbar(0,h);
     
-%%%%%     Per salvare nella cartella la struct come .mat !!!!!
-
-%     save(fullfile(Info.OutputPathMASK,'VOLUME_IMAGE_3D'),...
-%         'volume_image', 'slice_data', 'image_meta_data');
-    
-%     local_directory = pwd;
-%     eval(['cd ' dicom_directory]);
-%     save VOLUME_IMAGE volume_image slice_data image_meta_data
-%     eval(['cd ' local_directory]);
     close(h);
