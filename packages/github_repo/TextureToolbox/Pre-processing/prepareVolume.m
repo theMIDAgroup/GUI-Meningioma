@@ -139,9 +139,6 @@ clear ROIbox
 [boxBound] = computeBoundingBox(mask);
 maskBox = mask(boxBound(1,1):boxBound(1,2),boxBound(2,1):boxBound(2,2),boxBound(3,1):boxBound(3,2));
 ROIbox = volume(boxBound(1,1):boxBound(1,2),boxBound(2,1):boxBound(2,2),boxBound(3,1):boxBound(3,2));
-% Per i pazienti sagittali (aspetta modifica pixelW and SliceS)
-% volume_reverse = volume(:,:,end:-1:1);
-% ROIbox = volume_reverse(boxBound(1,1):boxBound(1,2),boxBound(2,1):boxBound(2,2),boxBound(3,1):boxBound(3,2));
 
 % PRE-PROCESSING OF ROI BOX
 ROIbox = double(ROIbox);
@@ -150,10 +147,9 @@ if strcmp(scanType,'PETscan') || strcmp(scanType,'PTscan')
 elseif strcmp(scanType,'MRscan')
     ROIonly = ROIbox;
     ROIonly(~maskBox) = NaN;
-%     temp = CollewetNorm(ROIonly);   % Modified from original
+%     temp = CollewetNorm(ROIonly); % modified 
 %     maskBox(isnan(temp)) = 0;
 end
-
 
 % WAVELET BAND-PASS FILTERING
 if R ~= 1
@@ -192,8 +188,9 @@ if ~nonTexture
     end
     
 end
-%ho aggiunto questo, che mi permette di togliere i piani dove non c'è
-%maschera (che evidentemente in qualche modo compaiono con il resize)
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% MODIFIED: To delete slices with no mask, if they appear after resize.
 % idx = any(maskBox ~= 0,[1 3]);
 % maskBox = maskBox(:,idx,:);
 % ROIbox = ROIbox(:,idx,:);
@@ -206,24 +203,34 @@ idx = any(maskBox ~= 0,[1 2]);
 maskBox = maskBox(:,:,idx);
 ROIbox = ROIbox(:,:,idx);
 
-%fino a qua aggiunto da isa ( forse quelle che non sono sullo spessore
-%vanno tolte!!! fare delle figure per capire)
-
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 ROIonly = ROIbox; ROIonly(~maskBox) = NaN; ROIonly(maskBox<0) = NaN;
-
 
 % QUANTIZATION
 
 if strcmp(textType,'Matrix')
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+    % MODIFIED: 
+    % to introduce quantization uncomment the following:
     [ROIonly,levels] = quantization(ROIonly,Ng);
+    
+    % for 2D features error analysis and no quantization uncomment the following:
+%     min_level = min(min(volume(:)));
+%     max_level = max(max(volume(:)));
+% 
+%     ROIonly = round(ROIonly);
+% 
+%     aux_ROIonly = (~isnan(ROIonly));
+%     ROIonly(aux_ROIonly ==1 & ROIonly<=0) = 1;
+%     levels = min_level:1:max_level;
+    %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 elseif strcmp(textType,'Global')
     levels = 0;
 elseif strcmp(textType,'nonTexture')
-    levels = 0; % isa: levels qui non ha significato!!! lo aggiungo senno impazzisce
+    levels = 0;  
 elseif strcmp(textType,'nonTexture2D')
-    levels = 0; % MODIFIED VC; IC     
+    levels = 0;             % MODIFIED  
 end
 
 
