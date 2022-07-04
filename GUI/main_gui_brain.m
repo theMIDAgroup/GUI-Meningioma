@@ -68,7 +68,7 @@ pos.FIGURE=position;
 %%%% PANEL LOAD - position
 pos.PANELload.panel=round([15,680,800,60].*pos.scale_factor);
 pos.PANELload.PBload=round([15,5,120,25].*pos.scale_factor);
-pos.PANELload.TXTload=round([150,5,570,25].*pos.scale_factor);
+pos.PANELload.TXTload=round([150,5,650,30].*pos.scale_factor);
 
 %%%% PANEL MRI FIGURE - position
 pos.PANELax.panel=round([15,15,560,660].*pos.scale_factor);
@@ -97,35 +97,35 @@ pos.PANELax.ZoomOut=round([450,270,25,25].*pos.scale_factor);
 pos.PANELax.TXT=round([-60,605,575,27].*pos.scale_factor);
 pos.PANELax.colorbar=round([10,5,25,575].*pos.scale_factor);  
 
-pos.PANELdelete_slices.which_tumour=round([150,85,60,25].*pos.scale_factor);
-pos.PANELdelete_slices.new_Start=round([150,50,60,25].*pos.scale_factor);
-pos.PANELdelete_slices.new_End=round([150,15,60,25].*pos.scale_factor);
-pos.PANELdelete_slices.delete_push=round([230,50,90,25].*pos.scale_factor);
-pos.PANELdelete_slices.TXTwhich_tumour=round([5,85,130,25].*pos.scale_factor);
-pos.PANELdelete_slices.TXTnew_Start=round([5,50,130,25].*pos.scale_factor);
-pos.PANELdelete_slices.TXTnew_End=round([5,15,130,25].*pos.scale_factor);
-pos.PANELdelete_slices.PBload = round([230,15,90,25].*pos.scale_factor);
+pos.PANELdelete_slices.which_tumour=round([150,85,60,28].*pos.scale_factor);
+pos.PANELdelete_slices.new_Start=round([150,50,60,28].*pos.scale_factor);
+pos.PANELdelete_slices.new_End=round([150,15,60,28].*pos.scale_factor);
+pos.PANELdelete_slices.delete_push=round([230,50,90,28].*pos.scale_factor);
+pos.PANELdelete_slices.TXTwhich_tumour=round([5,85,130,28].*pos.scale_factor);
+pos.PANELdelete_slices.TXTnew_Start=round([5,50,130,28].*pos.scale_factor);
+pos.PANELdelete_slices.TXTnew_End=round([5,15,130,28].*pos.scale_factor);
+pos.PANELdelete_slices.PBload = round([230,15,90,28].*pos.scale_factor);
 
-pos.PANELappend_ROI.val_1=round([150,90,60,25].*pos.scale_factor);
-pos.PANELappend_ROI.val_2=round([150,50,60,25].*pos.scale_factor);
-pos.PANELappend_ROI.append_ROI=round([230,70,90,25].*pos.scale_factor);
-pos.PANELappend_ROI.TXTval_1=round([5,90,130,25].*pos.scale_factor);
-pos.PANELappend_ROI.TXTval_2=round([5,50,130,25].*pos.scale_factor);
+pos.PANELappend_ROI.val_1=round([150,90,60,28].*pos.scale_factor);
+pos.PANELappend_ROI.val_2=round([150,50,60,28].*pos.scale_factor);
+pos.PANELappend_ROI.append_ROI=round([230,70,90,28].*pos.scale_factor);
+pos.PANELappend_ROI.TXTval_1=round([5,90,130,28].*pos.scale_factor);
+pos.PANELappend_ROI.TXTval_2=round([5,50,130,28].*pos.scale_factor);
 
-pos.PANELsame_roi.val_part1=round([150,90,60,25].*pos.scale_factor);
-pos.PANELsame_roi.val_part2=round([150,50,60,25].*pos.scale_factor);
-pos.PANELsame_roi.val_part3=round([150,10,60,25].*pos.scale_factor);  
+pos.PANELsame_roi.val_part1=round([150,90,60,28].*pos.scale_factor);
+pos.PANELsame_roi.val_part2=round([150,50,60,28].*pos.scale_factor);
+pos.PANELsame_roi.val_part3=round([150,10,60,28].*pos.scale_factor); %IC
 
 pos.PANELsame_roi.merge_components=round([230,70,90,25].*pos.scale_factor);
-pos.PANELsame_roi.merge_3components=round([230,30,90,25].*pos.scale_factor); 
-pos.PANELsame_roi.TXTval_part1=round([5,90,130,25].*pos.scale_factor);
-pos.PANELsame_roi.TXTval_part2=round([5,50,130,25].*pos.scale_factor);
-pos.PANELsame_roi.TXTval_part3=round([5,10,130,25].*pos.scale_factor);  
+pos.PANELsame_roi.merge_3components=round([230,30,90,25].*pos.scale_factor); %IC
+pos.PANELsame_roi.TXTval_part1=round([5,90,130,28].*pos.scale_factor);
+pos.PANELsame_roi.TXTval_part2=round([5,50,130,28].*pos.scale_factor);
+pos.PANELsame_roi.TXTval_part3=round([5,10,130,28].*pos.scale_factor); %IC
 
 pos.PANELsame_roi.radiomics_T1_and_Continue = round([70,10,190,25].*pos.scale_factor);
 
-pos.PANELgui_check.gui_check_T1=round([5,90,230,25].*pos.scale_factor);       
-pos.PANELgui_check.gui_check_ADC=round([5,50,230,25].*pos.scale_factor);   
+pos.PANELgui_check.gui_check_T1=round([5,90,290,32].*pos.scale_factor);       
+pos.PANELgui_check.gui_check_ADC=round([5,50,290,32].*pos.scale_factor);   
 
 pos.PANELroi.panel=round([580,60,235,600].*pos.scale_factor);
 pos.PANELroi.popup=round([5,550,225,25].*pos.scale_factor);
@@ -190,7 +190,7 @@ gui_ROI.PANELload.PBload = uicontrol(gui_ROI.PANELload.panel,'style', 'pushbutto
     'string', 'LOAD',...
     'position',pos.PANELload.PBload,...
     'BackGroundColor',gui_ROI.bgc,...
-    'ForeGroundColor',gui_ROI.fgc,...
+    'ForeGroundColor',gui_ROI.fgc,... 
     'FontSize',gui_ROI.fs,...
     'callback', 'Load_Data');
 
@@ -420,7 +420,7 @@ gui_ROI.PANELsame_roi.merge_3components =uicontrol(gui_ROI.PANELsame_roi.panel,'
 % GUI Check
 gui_ROI.PANELgui_check.gui_check_T1 = uicontrol(gui_ROI.PANELgui_check.panel,'style', 'pushbutton',...
     'units', 'pixel',...
-    'string', 'Check segmentation T1 on GUI',...
+    'string', 'Check T1 segmentation',...
     'BackGroundColor',gui_ROI.bgc,...
     'ForeGroundColor',gui_ROI.fgc,...
     'FontSize',gui_ROI.fs,...
@@ -430,7 +430,7 @@ gui_ROI.PANELgui_check.gui_check_T1 = uicontrol(gui_ROI.PANELgui_check.panel,'st
 
 gui_ROI.PANELgui_check.gui_check_ADC= uicontrol(gui_ROI.PANELgui_check.panel,'style', 'pushbutton',...
     'units', 'pixel',...
-    'string', 'Check segmentation ADC on GUI',...
+    'string', 'Check ADC segmentation',...
     'BackGroundColor',gui_ROI.bgc,...
     'ForeGroundColor',gui_ROI.fgc,...
     'FontSize',gui_ROI.fs,...
@@ -438,8 +438,8 @@ gui_ROI.PANELgui_check.gui_check_ADC= uicontrol(gui_ROI.PANELgui_check.panel,'st
     'enable','off',...
     'callback', 'CheckADC;'); 
 
-%% PANEL MRI FIGURE
-gui_ROI.PANELax.panel=uipanel('parent',gui_ROI.fig,'Title','MRI image','units','pixel',...
+%% PANEL MR FIGURE
+gui_ROI.PANELax.panel=uipanel('parent',gui_ROI.fig,'Title','MR image','units','pixel',...
     'Position',pos.PANELax.panel,'FontWeight','bold','FontSize',gui_ROI.fs,'visible','off',...
     'BackGroundColor',gui_ROI.bgc_drop, 'ForeGroundColor',gui_ROI.fgc);
 
