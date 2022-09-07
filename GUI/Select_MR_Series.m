@@ -18,6 +18,7 @@ global ROI;
 
 % enable some panels in the GUI
 set(gui_ROI.PANELroi.popup,'enable','on');
+set(gui_ROI.PANELquantAlgo.popup,'enable','on');   
 set(gui_ROI.PANELroi.PANEL5.PB2,'enable','on');
 set(gui_ROI.PANELroi.PANEL5.PB3,'enable','on');
 set(gui_ROI.PBstart,'enable','on');

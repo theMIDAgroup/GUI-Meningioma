@@ -26,10 +26,12 @@ str_wbar = [Info.PatientName.FamilyName ' ' Info.PatientName.GivenName ' Radiomi
 w = waitbar(0,'Radiomics analysis in progress','Name','Radiomics analysis in progress');
 waitbar(0.15, w,str_wbar);
 
+quantAlgo = gui_ROI.PopupValueQuant; 
+
 % radiomics 2D (slice-wise)
 radiomics_general2D('volume_image.mat','volume_image','volume_mask.mat','volume_mask',...
                 'number_of_slices_after_resize','globalTextures','matrix_based_textures','nonTexture',...
-                [subj,'_radiomics2D.xlsx'],Info.PixelSizeMR(1),Info.SliceThicknessMR);
+                [subj,'_radiomics2D.xlsx'],Info.PixelSizeMR(1),Info.SliceThicknessMR, quantAlgo);
 
 str_wbar = [Info.PatientName.FamilyName ' ' Info.PatientName.GivenName ' Radiomics 2D done!'];
 waitbar(0.33, w,str_wbar);
@@ -37,7 +39,7 @@ waitbar(0.33, w,str_wbar);
 % radiomics 3D (on the volume)
 radiomics_general('volume_image.mat', 'volume_image', 'volume_mask.mat', 'volume_mask',...
     'globalTextures', 'matrix_based_textures', 'nonTexture',[subj,'_radiomics.xlsx'],...
-    Info.PixelSizeMR(1),Info.SliceThicknessMR);
+    Info.PixelSizeMR(1),Info.SliceThicknessMR, quantAlgo);
 
 str_wbar = [Info.PatientName.FamilyName ' ' Info.PatientName.GivenName ' Radiomics 3D done!'];
 waitbar(0.67, w,str_wbar);
@@ -59,7 +61,6 @@ if exist(ADC_directory,'dir')
 else
     save([Info.InputPathMAT gui_ROI.slash_pc_mac 'ROI.mat'],'ROI','-mat');   
     save([Info.InputPathMAT gui_ROI.slash_pc_mac 'Info.mat'],'Info','-mat');  
-
     str_wbar = [Info.PatientName.FamilyName ' ' Info.PatientName.GivenName ' End of radiomics analysis!']; 
     waitbar(1, w,str_wbar);
     close(w);
