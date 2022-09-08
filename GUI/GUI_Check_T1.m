@@ -38,12 +38,12 @@ pos.FIGURE_test = pos.FIGURE - [10,25,0,0];
 pos.PANEL_test = [5,5,pos.FIGURE_test(3)-5,pos.FIGURE_test(4)-5];
 pos.TxtROI = [90,590,50,50].*pos.scale_factor;          
 pos.TxtROI_val = [135,590,50,50].*pos.scale_factor;      
-pos.TxtROIof = [170,590,30,50].*pos.scale_factor;       
-pos.TxtROI_num = [190,590,50,50].*pos.scale_factor;    
-pos.TxtSlice = [230,590,80,50].*pos.scale_factor;        
-pos.TxtSlice_val = [285,590,50,50].*pos.scale_factor;    
-pos.TxtSliceof = [320,590,30,50].*pos.scale_factor;      
-pos.TxtSlice_num = [340,590,50,50].*pos.scale_factor;    
+pos.TxtROIof = [170,590,40,50].*pos.scale_factor;       
+pos.TxtROI_num = [200,590,50,50].*pos.scale_factor;    
+pos.TxtSlice = [240,590,90,50].*pos.scale_factor;        
+pos.TxtSlice_val = [305,590,50,50].*pos.scale_factor;    
+pos.TxtSliceof = [340,590,40,50].*pos.scale_factor;      
+pos.TxtSlice_num = [380,590,50,50].*pos.scale_factor;    
 pos.ax = [-10,85,490,490].*pos.scale_factor;
 pos.ax_ls = [350,85,490,490].*pos.scale_factor;
 pos.ax_fwd = [710,85,490,490].*pos.scale_factor;
@@ -60,14 +60,14 @@ pos.rb_ls = [80,0,50,50].*pos.scale_factor;
 pos.rb_fwd = [530,0,150,50].*pos.scale_factor;
 pos.Previous_slice = [350,15,180,50].*pos.scale_factor;
 pos.Next_slice = [555,15,120,50].*pos.scale_factor;
-pos.Done = [730,15,120,50].*pos.scale_factor;
+pos.Done = [1000,15,120,50].*pos.scale_factor;
 
 gui_T1.fig = figure('Position',pos.FIGURE_test,'Name','CHECK SLICES');
 set(gui_T1.fig,'NumberTitle','off');
 set(gui_T1.fig,'Color',gui_ROI.bgc_light);
 
 gui_T1.panel=uipanel('parent',gui_T1.fig,'Title',...
-    'check MRI images','units','pixel',...
+    'Check MR images','units','pixel',...
     'Position',pos.PANEL_test,...
     'FontWeight','bold','FontSize',gui_ROI.fs,...
     'visible','on',...

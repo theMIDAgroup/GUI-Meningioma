@@ -12,16 +12,14 @@ function Write_xlsx_Radiomics2D_merged(number_of_slices_ROIonly_field_name,globa
 
 global ROI;
 global Info;
-global gui_ROI;
 global radiomics2D_merge;
-
 
 if ~exist(Info.OutputPathRadiomics,'dir'), mkdir(Info.OutputPathRadiomics); end  
 
 rng('default') % for reproducibility
 T = table();
 
-val = 1%Info.district_part1;
+val = Info.district_part1;
 
 % Load number of slices after resize and count them
 number_of_slices_after_resize = getfield(ROI{val},number_of_slices_ROIonly_field_name); 
@@ -100,11 +98,8 @@ for slice = 1:number_of_slices_after_resize
     T = [T;tempTable];
 end
 
-filename = [Info.OutputPathRadiomics gui_ROI.slash_pc_mac output_file_name];  
-writetable(T,filename,'Sheet',1,'Range','A1')
-
-% file_radiomics = ['/Users/valentina/Desktop/Excel/' output_file_name];
-% writetable(T,file_radiomics,'Sheet',1,'Range','A1')
+% filename = [Info.OutputPathRadiomics gui_ROI.slash_pc_mac output_file_name];  
+writetable(T,output_file_name,'Sheet',1,'Range','A1')  
 
 end
 

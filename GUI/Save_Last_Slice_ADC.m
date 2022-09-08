@@ -81,14 +81,16 @@ waitbar(0.67, w,str_wbar);
 
 % ADC
 % radiomics 2D (slice-wise)
+quantAlgo = get(gui_ROI.PANELquantAlgo.quantAlgo,'string'); 
+
 radiomics_general2D('volume_image_adc.mat','volume_image_adc','volume_mask_adc.mat','volume_mask',...
                 'number_of_slices_after_resize_ADC','globalTextures_ADC','matrix_based_textures_ADC','nonTexture_ADC',...
                 [subj,'_radiomics2D_ADC.xlsx'],...
-                Info.PixelSizeADC(1),Info.PixelSizeADC(3)); 
+                Info.PixelSizeADC(1),Info.PixelSizeADC(3),quantAlgo); 
 
 radiomics_general('volume_image_adc.mat', 'volume_image_adc', 'volume_mask_adc.mat', 'volume_mask',...
     'globalTextures_ADC', 'matrix_based_textures_ADC', 'nonTexture_ADC',[subj,'_radiomics_ADC.xlsx'],...
-    Info.PixelSizeADC(1),Info.PixelSizeADC(3));
+    Info.PixelSizeADC(1),Info.PixelSizeADC(3),quantAlgo);
 
 str_wbar = [Info.PatientName.FamilyName ' ' Info.PatientName.GivenName ' Radiomics ADC 2D and 3D done!'];
 waitbar(0.8, w,str_wbar);

@@ -12,16 +12,14 @@ function Write_xlsx_Radiomics_merged(globalTextures_field_name,...
 
 global ROI;
 global Info;
-global gui_ROI;
 global radiomics_merge;
-
 
 if ~exist(Info.OutputPathRadiomics,'dir'), mkdir(Info.OutputPathRadiomics); end  
 
 rng('default') % for reproducibility
 T = table();
 
-val = 1%Info.district_part1;
+val = Info.district_part1;
 
 % Convert cell to a table and use first row as variable names
 aux1 = getfield(radiomics_merge{1},globalTextures_field_name);
@@ -94,11 +92,8 @@ tempTable.GLV1 = aux3.glszmTextures.GLV;
 tempTable.ZSV = aux3.glszmTextures.ZSV;
 T = [T;tempTable];
 
-filename = [Info.OutputPathRadiomics gui_ROI.slash_pc_mac output_file_name];  
-writetable(T,filename,'Sheet',1,'Range','A1')
-
-% file_radiomics = ['/Users/valentina/Desktop/Excel/' output_file_name];
-% writetable(T,file_radiomics,'Sheet',1,'Range','A1')
+% filename = [Info.OutputPathRadiomics gui_ROI.slash_pc_mac output_file_name];   
+writetable(T,output_file_name,'Sheet',1,'Range','A1')
 
 end
 
