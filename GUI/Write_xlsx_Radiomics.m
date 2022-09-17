@@ -13,6 +13,7 @@ function Write_xlsx_Radiomics(globalTextures_field_name,...
 global ROI;
 global Info;
 global radiomics;
+global gui_ROI;
 
 if ~exist(Info.OutputPathRadiomics,'dir'), mkdir(Info.OutputPathRadiomics); end 
 
@@ -98,8 +99,8 @@ for val = 1 : Nval
 
 end
 
-% filename = [Info.OutputPathRadiomics gui_ROI.slash_pc_mac output_file_name]; 
-writetable(T,output_file_name,'Sheet',1,'Range','A1')  
+filename = [Info.OutputPathRadiomics gui_ROI.slash_pc_mac output_file_name]; 
+writetable(T,filename,'Sheet',1,'Range','A1')  
 
 end
 

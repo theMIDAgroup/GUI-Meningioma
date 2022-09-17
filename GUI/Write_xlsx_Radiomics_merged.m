@@ -12,6 +12,7 @@ function Write_xlsx_Radiomics_merged(globalTextures_field_name,...
 
 global ROI;
 global Info;
+global gui_ROI;
 global radiomics_merge;
 
 if ~exist(Info.OutputPathRadiomics,'dir'), mkdir(Info.OutputPathRadiomics); end  
@@ -92,8 +93,8 @@ tempTable.GLV1 = aux3.glszmTextures.GLV;
 tempTable.ZSV = aux3.glszmTextures.ZSV;
 T = [T;tempTable];
 
-% filename = [Info.OutputPathRadiomics gui_ROI.slash_pc_mac output_file_name];   
-writetable(T,output_file_name,'Sheet',1,'Range','A1')
+filename = [Info.OutputPathRadiomics gui_ROI.slash_pc_mac output_file_name];   
+writetable(T,filename,'Sheet',1,'Range','A1')
 
 end
 
