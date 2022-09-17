@@ -69,7 +69,9 @@ else
     Info.InputPathMAT = [InputPath '_MAT'];
     Info.OutputPathDICOM = [InputPath '_OUTPUT_DICOM'];
     Info.OutputPathMASK = [InputPath '_OUTPUT_MASK'];
-    Info.OutputPathRadiomics= [InputPath '_RADIOMICS_OUTPUT']; 
+    idcs   = strfind(InputPath,'/');   %VC
+    newInputPath = InputPath(1:idcs(end)-1);
+    Info.OutputPathRadiomics= [newInputPath '/RADIOMICS_OUTPUT']; 
 
     set(gui_ROI.PANELload.TXTload,'string',strtrim(InputPath));
     if exist(Info_mat_file,'file')
