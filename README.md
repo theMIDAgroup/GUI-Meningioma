@@ -4,7 +4,9 @@ Matlab Graphic User Interface (GUI) for image visualization, segmentation and ra
 
 The code is based on the following publications:
 
-*2022 I. Cama, V. Candiani, M. Piana and C. Campi, "Impact of segmentation accuracy on features quality and robustness in radiomics", to be submitted.
+*2022 I. Cama, V. Candiani, M. Piana and C. Campi, "A comprehensive tool for image segmentation and radiomics analysis of MR images", to be submitted.
+
+*2022 I. Cama, V. Candiani, L. Roccatagliata, P. Fiaschi, G. Rebella, M. Resaz, M. Piana and C. Campi, "Segmentation accuracy and the reliability of radiomics features", to be submitted.
 
 *2015 M. Vallières, C.R. Freeman, S.R. Skamene, I. El Naqa, “A radiomics model from joint FDG-PET and MRI texture features for the prediction of lung metastases in soft-tissue sarcomas of the extremities”, Phys Med Biol. 2015 Jul 21;60(14):5471-96. doi: 10.1088/0031-9155/60/14/5471.
 
