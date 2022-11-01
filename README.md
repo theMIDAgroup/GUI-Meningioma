@@ -1,6 +1,6 @@
 # GUI-Meningioma
 
-Matlab Graphic User Interface (GUI) for image visualization, segmentation and radiomics feature extraction for MRI images of meningioma patients. The feature extraction package has been directly taken from https://github.com/mvallieres/radiomics, with slight modifications for 2D analysis.  
+Matlab Graphic User Interfaces (GUIs) for image visualization, segmentation and radiomics feature extraction for MRI images (T1 and ADC sequences) of meningioma patients. The feature extraction package has been directly taken from https://github.com/mvallieres/radiomics, with slight modifications for 2D analysis, quantization algorithm and default image resampling.  
 
 The code is based on the following publications:
 
@@ -15,4 +15,4 @@ The code is based on the following publications:
 Usage:
 
 Code is written in Matlab R2021b and tested with versions up to R2019b.
-main_gui_brain.m file launches a Matlab GUI for image visualization and ROI definition. It requires standard DICOM data. A second GUI will open when the segmentation algorithm has finished (see details on the comprehensive ReadMe_GUI_Meningioma.doc file). Test data can be found in the "DATA" folder.
+main_gui_brain.m file launches a Matlab GUI for image visualization and ROI definition (GUI 1). It requires standard DICOM data. A second GUI (GUI 2) will open when the segmentation algorithm has finished to check the segmentation results on T1 images (see details on the comprehensive ReadMe_GUI_Meningioma.doc file). ADC coregistration results can be visualized on a third GUI (GUI 3). Test data can be found in the "DATA" folder.
