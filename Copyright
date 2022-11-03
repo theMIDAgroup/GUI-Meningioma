@@ -1,0 +1,13 @@
+<https://github.com/theMIDAgroup/GUI-Meningioma>: MATLAB/Python programming tools for 
+image segmentation and radiomics analysis
+  Copyright (C) 2022  MIDA Group
+
+    This program is free but copyrighted software, distributed under the
+    terms of the GNU General Public Licence as published by the Free Software 
+    Foundation (either version 2, or at your option any later version). 
+    See the file license for more details.
+    
+    Caution: GUI-Meningioma is a toolbox written and released for medical research 
+    purposes only with no guarantee of suitability for any particular purpose. 
+    GUI-Meningioma, or data obtained from GUI-Meningioma, should not under any 
+    circumstances be used for clinical purposes.
