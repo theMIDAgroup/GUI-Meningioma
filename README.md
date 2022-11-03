@@ -19,4 +19,4 @@ main_gui_brain.m file launches a Matlab GUI for image visualization and ROI defi
 
 Copyright:
 
-The GUI-Meningioma software is free but copyrighted software, distributed under the terms of the GNU General Public Licence as published by the Free Software Foundation (either version 3, or at your option any later version). See the file COPYING for more details.
+The GUI-Meningioma software is free but copyrighted software, distributed under the terms of the GNU General Public Licence as published by the Free Software Foundation (either version 3, or at your option any later version). See the files Copyright and license for more details.
