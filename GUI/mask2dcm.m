@@ -8,13 +8,15 @@
 % - T1 mask from dicom to nifti format (for each ROI)
 % - T1 image from dicom to nifti format
 % - ADC image from dicom to nifti
-% From here:
+% From here, if using Windows or Linux:
 % - run fsl2matlab.py to coregister T1 and ADC images and save 
 %   the transformation matrix (using FSL)
 % - run maskT1_2_maskADC.py to produce ADC masks (one for each ROI)
 % - come back to Matlab and run mask_adc_nii2mat.m
+% If using Mac, all the above steps are integrated in this function
 % -------------------------------------------------------------------------
 %%%% called by: radiomics_T1_and_Continue()
+%%%% call: mask_adc_nii2mat() if using Mac
 
 function mask2dcm()
 
@@ -89,4 +91,33 @@ save([Info.InputPathMAT gui_ROI.slash_pc_mac 'Info.mat'],'Info','-mat');
 
 disp('End of T1 analysis and radiomics')
 
+% with Windows and Linux the Matlab code ends here and one should continue on Python,
+% with coregistrationT1_ADC.py and maskT1_2_maskADC.py. One should then
+% reopen Matlab and run mask_adc_nii2mat.m 
+% with Mac, it is possible to continue
+if ispc; disp('Go to Python and run coregistrationT1_ADC.py and maskT1_2_maskADC.py');
+elseif ismac
+    %% FSL
+    fsldir = '/usr/local/fsl';
+    fsldirmpath = sprintf('%s/etc/matlab',fsldir);
+    setenv('FSLDIR', fsldir);
+    setenv('FSLOUTPUTTYPE', 'NIFTI_GZ');
+    path(path, fsldirmpath);
+    %clear fsldir fsldirmpath;
+
+    stringa_coregistr = ['/usr/local/fsl/bin/flirt -in ' Info.OutputPathMASK,'/T1.nii.gz -ref ' Info.OutputPathMASK,'/ADC.nii.gz -out ', Info.OutputPathMASK,'/coregistration_T1_ADC.nii -omat ' Info.OutputPathMASK,'/coregistration_matrix.mat -bins 256 -cost corratio -dof 12 -interp trilinear -searchrx -90 90 -searchry -90 90 -searchrz -90 90'];
+    call_fsl(stringa_coregistr);
+
+    for val = 1 : Nval
+        if ROI{val}.Enable
+            volume_mask_directory = [Info.OutputPathMASK gui_ROI.slash_pc_mac...
+                'MASK_' regexprep(ROI{val}.Name,'[^\w'']','')];
+
+            stringa_adc_mask = ['/usr/local/fsl/bin/flirt -in ' volume_mask_directory ,'/T1_mask.nii.gz -ref ' Info.OutputPathMASK,'/ADC.nii.gz -applyxfm -init ', Info.OutputPathMASK,'/coregistration_matrix.mat -o ' volume_mask_directory,'/ADC_mask.nii.gz'];
+            call_fsl(stringa_adc_mask);
+        end
+    end
+
+    mask_adc_nii2mat;
+end
 end
