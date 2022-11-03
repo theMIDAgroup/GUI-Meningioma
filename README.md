@@ -16,3 +16,5 @@ Usage:
 
 Code is written in Matlab R2021b and tested with versions up to R2019b.
 main_gui_brain.m file launches a Matlab GUI for image visualization and ROI definition (GUI 1). It requires standard DICOM data. A second GUI (GUI 2) will open when the segmentation algorithm has finished to check the segmentation results on T1 images (see details on the comprehensive ReadMe_GUI_Meningioma.doc file). ADC coregistration results can be visualized on a third GUI (GUI 3). Test data can be found in the "DATA" folder.
+
+Thi GUI-Meningioma software is free but copyrighted software, distributed under the terms of the GNU General Public Licence as published by the Free Software Foundation (either version 3, or at your option any later version). See the file COPYING for more details.
