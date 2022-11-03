@@ -22,13 +22,11 @@ set(gui_ROI.PANELroi.PANEL2.PB3,'enable','off');
 
 set(gui_ROI.PANELroi.PANEL3.TXT1a,'enable','off');
 set(gui_ROI.PANELroi.PANEL3.PB2,'enable','off');
-set(gui_ROI.PANELroi.PANEL3.TXT3a,'enable','off');
 set(gui_ROI.PANELroi.PANEL3.TXT1b,'string','');
 set(gui_ROI.PANELroi.PANEL3.TXT2b,'string','');
 set(gui_ROI.PANELroi.PANEL3.TXT3b,'string','');
 
 set(gui_ROI.PANELroi.PANEL4.CKBOX1,'value',0,'enable','off');
-set(gui_ROI.PANELroi.PANEL4.CKBOX2,'value',0,'enable','off');
 
 set(gui_ROI.PANELroi.PANEL5.PB1,'enable','off');
 set(gui_ROI.PANELroi.PANEL5.PB2,'enable','off');

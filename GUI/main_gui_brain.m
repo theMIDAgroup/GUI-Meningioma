@@ -59,9 +59,9 @@ position(1,1)=round((scrsz(1,3)*.99-position(1,3)));
 position(1,2)=round((scrsz(1,4)-position(1,4))/2);
 
 %%%% scale factor for gui
-vect_pixel_sambu=[1920 1058 1920 1058];
+vect_pixel=[1920 1058 1920 1058];
 vect_pixel_screen=[scrsz(1,3),scrsz(1,4),scrsz(1,3),scrsz(1,4)];
-pos.scale_factor=(vect_pixel_screen./vect_pixel_sambu).*[screen_x/.6 screen_y/.7 screen_x/.6 screen_y/.7];
+pos.scale_factor=(vect_pixel_screen./vect_pixel).*[screen_x/.6 screen_y/.7 screen_x/.6 screen_y/.7];
 
 pos.FIGURE=position;
 
@@ -148,14 +148,12 @@ pos.PANELroi.PANEL2.PB3=round([115,10,40,40].*pos.scale_factor);
 pos.PANELroi.PANEL3.panel=round([5,310,225,105].*pos.scale_factor);
 pos.PANELroi.PANEL3.TXT1a=round([10,65,120,25].*pos.scale_factor);
 pos.PANELroi.PANEL3.PB2=round([10,35,120,25].*pos.scale_factor);
-pos.PANELroi.PANEL3.TXT3a=round([10,5,120,25].*pos.scale_factor);
 pos.PANELroi.PANEL3.TXT1b=round([130,65,90,25].*pos.scale_factor);
 pos.PANELroi.PANEL3.TXT2b=round([130,35,90,25].*pos.scale_factor);
 pos.PANELroi.PANEL3.TXT3b=round([130,5,90,25].*pos.scale_factor);
 
 pos.PANELroi.PANEL4.panel=round([5,160,225,125].*pos.scale_factor);
 pos.PANELroi.PANEL4.CKBOX1=round([10,65,205,25].*pos.scale_factor);
-pos.PANELroi.PANEL4.CKBOX2=round([10,35,205,25].*pos.scale_factor);
 
 pos.PANELroi.PANEL5.panel=round([5,10,225,125].*pos.scale_factor);
 pos.PANELroi.PANEL5.PB1=round([10,65,120,25].*pos.scale_factor);
@@ -165,19 +163,17 @@ pos.PANELroi.PANEL5.PB3=round([10,5,120,25].*pos.scale_factor);
 %%%% PANEL start - position
 pos.PBstart=round([580,15,235,40].*pos.scale_factor);
 
-%%%% auxiliaries
+%%%% GUI colors
 gui_ROI.first_opening=0;
 gui_ROI.scale4contrast=0.5;
-gui_ROI.bgc = [0.4 0.4 0.4]; 
-gui_ROI.bgc_light = [0.4 0.4 0.4];
-gui_ROI.fgc = [1,1,1];  
+gui_ROI.bgc = [0.8 0.8 0.8];   % panels [0.4 0.4 0.4]  
+gui_ROI.bgc_light = [0.4 0.4 0.4];  
+gui_ROI.fgc = [0,0,0];%[1,1,1];
 gui_ROI.fs = 16;
-gui_ROI.bgc_drop = [0.5 0.5 0.5];
+gui_ROI.bgc_drop = [0.5 0.5 0.5]; % panel background
 gui_ROI.fgc_drop = [0.4 0.4 0.4];
 gui_ROI.bgc_ppm = [0.8 0.8 0.8];
 gui_ROI.fgc_ppm = [0.4 0.4 0.4];
-gui_ROI.first_opening=0;
-gui_ROI.scale4contrast=0.5;
 
 %% FIGURE
 gui_ROI.fig=figure('HandleVisibility','Callback','Menubar','none',...
@@ -664,15 +660,6 @@ gui_ROI.PANELroi.PANEL3.PB2 = uicontrol(gui_ROI.PANELroi.PANEL3.panel,'style', '
     'enable','off',...
     'callback', 'Roi_End;');
 
-gui_ROI.PANELroi.PANEL3.TXT3a = uicontrol(gui_ROI.PANELroi.PANEL3.panel,'style', 'text',...
-    'units', 'pixel',...
-    'string', 'CENTER',...
-    'BackGroundColor',gui_ROI.bgc,...
-    'ForeGroundColor',gui_ROI.fgc,...
-    'FontSize',gui_ROI.fs,...
-    'enable','off',...
-    'position',pos.PANELroi.PANEL3.TXT3a);
-
 gui_ROI.PANELroi.PANEL3.TXT1b= uicontrol(gui_ROI.PANELroi.PANEL3.panel,'style', 'text',...
     'units', 'pixel',...
     'string', '',...
@@ -712,16 +699,6 @@ gui_ROI.PANELroi.PANEL4.CKBOX1 = uicontrol(gui_ROI.PANELroi.PANEL4.panel,'style'
     'enable','on',...
     'callback','Enable_Roi',...
     'position',pos.PANELroi.PANEL4.CKBOX1);
-
-gui_ROI.PANELroi.PANEL4.CKBOX2 = uicontrol(gui_ROI.PANELroi.PANEL4.panel,'style', 'checkbox',...
-    'units', 'pixel',...
-    'string', 'DICOM',...
-    'BackGroundColor',gui_ROI.bgc,...
-    'ForeGroundColor',gui_ROI.fgc,...
-    'FontSize',gui_ROI.fs,...
-    'enable','on',...
-    'callback','Enable_Dicom',...
-    'position',pos.PANELroi.PANEL4.CKBOX2);
 
 %%%%%%%%%%%%%%%%%%%%   PANEL 5  ROI save options  %%%%%%%%%%%%%%%%%%%%%%%%%
 gui_ROI.PANELroi.PANEL5.panel=uipanel('parent',gui_ROI.PANELroi.panel,...

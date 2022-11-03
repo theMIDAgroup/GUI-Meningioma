@@ -16,10 +16,4 @@ val = gui_ROI.PopupValue;
 val_enable = get(gui_ROI.PANELroi.PANEL4.CKBOX1,'value');
 ROI{val}.Enable = val_enable;
 
-if val_enable
-    set(gui_ROI.PANELroi.PANEL4.CKBOX2,'enable','on');
-else
-    set(gui_ROI.PANELroi.PANEL4.CKBOX2,'enable','off');
-end
-
 end
