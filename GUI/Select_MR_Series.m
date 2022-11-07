@@ -28,7 +28,9 @@ set(gui_ROI.PANELgui_check.gui_check_T1,'enable','on');
 set(gui_ROI.PANELgui_check.gui_check_ADC,'enable','on'); 
 
 % load the existing ROI
-ROI_mat_file = [Info.InputPath '_MAT' gui_ROI.slash_pc_mac, 'ROI.mat'];  
+idcs   = strfind(Info.InputPath,gui_ROI.slash_pc_mac);
+newInputPath = Info.InputPath(1:idcs(end)-1);
+ROI_mat_file = [newInputPath gui_ROI.slash_pc_mac 'MAT_FILES' gui_ROI.slash_pc_mac, 'ROI.mat'];  
 if exist(ROI_mat_file,'file')
     load(ROI_mat_file);
 
