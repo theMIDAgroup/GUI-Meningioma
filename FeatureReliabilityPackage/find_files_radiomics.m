@@ -32,8 +32,8 @@ for p = 1 : patients
 
     subj  = selected_members(p).name;
 
-    load([str,'/', subj, '/T1_MAT/Info.mat']);
-    load([str,'/', subj, '/T1_MAT/ROI.mat']);
+    load([str,'/', subj, '/MAT_FILES/Info.mat']);
+    load([str,'/', subj, '/MAT_FILES/ROI.mat']);
 
     if isfield(Info,'district_part1')
 

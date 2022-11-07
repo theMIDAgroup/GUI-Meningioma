@@ -28,9 +28,9 @@ for p = 1 : patients
     % patient name
     subj  = subj_names{p};
 
-    % Load from T1_MAT Info.mat and ROI.mat
-    load([str_data_true,'/', subj, '/T1_MAT/Info.mat']);
-    load([str_data_true,'/', subj, '/T1_MAT/ROI.mat']);
+    % Load from MAT_FILES Info.mat and ROI.mat
+    load([str_data_true,'/', subj, '/MAT_FILES/Info.mat']);
+    load([str_data_true,'/', subj, '/MAT_FILES/ROI.mat']);
     
     file_name_error = elements_in_folder(p).name;
     T_error = readtable([folder_relative_error '/' file_name_error]);

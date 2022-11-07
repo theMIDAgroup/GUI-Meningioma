@@ -24,7 +24,6 @@ for j = 1:44
 
 end
 
-
 max_aux = max(all_patients_10_count);
 %%
 
