@@ -1,3 +1,7 @@
+%% create_df_error_csv()
+% LISCOMP Lab 2021 - 2022, https://liscomp.dima.unige.it
+% -------------------------------------------------------------------------
+
 function [folder_relative_error,patients,subj_names, radiomics_files2D_auto, radiomics_files2D_true] = create_df_error_csv(str,id)
 
 % this function selects all radiomics files, and favors radiomics files

@@ -1,12 +1,15 @@
+%% create_table_all_patients()
+% LISCOMP Lab 2021 - 2022, https://liscomp.dima.unige.it
+% -------------------------------------------------------------------------
+
 function  T_all_patients = create_table_all_patients(str,folder_relative_error,patients,subj_names,radiomics_files2D_true)
-%resampled!
+
 % Load Info and ROI for the desired patient
 str_data_true = [str '/Data'];
 
 % Load relative error folder for the desired patient
 elements_in_folder = dir([folder_relative_error '/*.csv']);
 
-%tables initialization
 T_all_patients_Dice = table();
 T_resampled_aux = table();
 T_all_patients = table();
@@ -29,8 +32,6 @@ for p = 1 : patients
     load([str_data_true,'/', subj, '/T1_MAT/Info.mat']);
     load([str_data_true,'/', subj, '/T1_MAT/ROI.mat']);
     
-    %poi in qualche modo metterlo dentro al ciclo su val (per distinguere
-    %les 1 e les 2 ecc!!!!!!!!!!!)
     file_name_error = elements_in_folder(p).name;
     T_error = readtable([folder_relative_error '/' file_name_error]);
 
@@ -44,12 +45,12 @@ for p = 1 : patients
             volume_name = 'volume_mask_merged.mat';
         end
 
-        % Carico la mask true
+        % mask true
         output_directory = [Info.OutputPathMASK '/MASK_' regexprep(ROI{val}.Name,'[^\w'']','')];
         volume_mask = load([output_directory '/' volume_name]);
         volume_mask = volume_mask.volume_mask;
 
-        % Fette che contengono la lesione
+        % lesion slices
         Nit = length(ROI{val}.slices_merged);
         number_of_slices_per_patient(1, p+1)=Nit;
         merged = true;
@@ -68,8 +69,8 @@ for p = 1 : patients
             v = T_error{:,i};
             dim_aux = size(T_error);
             dim_aux = dim_aux(1);
-            x = 1:1:dim_aux; %ROI{val}.number_of_slices_after_resize;
-            xq = linspace(1, dim_aux, Nit); %ROI{val}.number_of_slices_after_resize,Nit);
+            x = 1:1:dim_aux;  
+            xq = linspace(1, dim_aux, Nit);  
             vq1  = interp1(x,v,xq);
             vq1 = vq1';
             column_name = T_error.Properties.VariableNames{i};
@@ -81,17 +82,17 @@ for p = 1 : patients
 
         for val = 1 : Nval
             if ROI{val}.Enable
-                % Carico la mask già modificata
+                % already modified mask
                 output_directory = [Info.OutputPathMASK '/MASK_' regexprep(ROI{val}.Name,'[^\w'']','')];
                 volume_mask = load([output_directory '/volume_mask.mat']);
                 volume_mask = volume_mask.volume_mask;
 
-                % Carico la mask uscita dall'algoritmo, senza modifiche
+                % automatic mask
                 volume_mask_ls_init = ROI{val}.MasksSlicesLevelSet;
                 volume_mask_fwd_init = ROI{val}.MasksSlicesForward;
                 volume_mask_bwd_init = ROI{val}.MasksSlicesBackward;
 
-                % Fette che contengono la lesione
+                % lesion slices
                 Nit = length(ROI{val}.RoiSlice);
                 number_of_slices_per_patient(1, p+1)=Nit;
                 merged = 0;
@@ -121,8 +122,6 @@ for p = 1 : patients
 
     s =size(T_resampled);   
     
-    %unire su tutti i pazienti, a feature fissata, il valore dell'errore sulla feature 
-    %fetta per fetta con il dice corrispondente e plottare tutto insieme
     T_resampled_aux = [T_resampled_aux; T_resampled];
     T_all_patients_Dice_aux.Dice = Dcoeff';
     T_all_patients_Dice = [T_all_patients_Dice;T_all_patients_Dice_aux];

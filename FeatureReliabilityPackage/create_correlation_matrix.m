@@ -1,3 +1,7 @@
+%% create_correlation_matrix()
+% LISCOMP Lab 2021 - 2022, https://liscomp.dima.unige.it
+% -------------------------------------------------------------------------
+
 function  M = create_correlation_matrix(type)
 if strcmp(type,'consistency')
     M1_lower = diag(ones(10,1))...
