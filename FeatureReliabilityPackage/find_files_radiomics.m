@@ -8,7 +8,7 @@ function [files,patients,subj_names] = find_files_radiomics(folder,str,id)
 if strcmp(folder,'auto')
     str = [str '/Data_auto'];
 else
-    str = [str '/Data'];
+    str = [str '/Data_true'];
 end
 
 % Load relative error file for the desired patient

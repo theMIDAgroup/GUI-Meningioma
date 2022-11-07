@@ -33,7 +33,7 @@ id={'M002';'M003';'M004';
     'M045';'M046';'M048';};
 
 % Here: change the path to the folder where data_true and data_auto are stored  
-str = '/Users/valentina/Documents/PostDoc/Radiomics/NEW_GUI_Meningioma/Data';
+str = '/~/GUI_Meningioma/Data';
 [folder_relative_error,patients,subj_names, radiomics_files2D_auto, radiomics_files2D_true] = create_df_error_csv(str,id);
 
 T_all_patients = create_table_all_patients(str,folder_relative_error,patients,subj_names,radiomics_files2D_true);
