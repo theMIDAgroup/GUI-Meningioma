@@ -60,30 +60,33 @@ else
     for it = 1 : length(gui_ROI.PANELroi.ROIName)-1 
         Initialize_ROI_brain(it);
     end
-    
-    
-    Info.InputPath = InputPath;
-    idcs   = strfind(InputPath,'/');  
-    newInputPath = InputPath(1:idcs(end)-1);
-    Info_mat_file = [newInputPath '/MAT_FILES' gui_ROI.slash_pc_mac, 'Info.mat'];
 
-    if ~exist([newInputPath '/MAT_FILES'],'dir'), mkdir([newInputPath '/MAT_FILES']); end
+    Info.InputPath = InputPath;
+    idcs   = strfind(InputPath,gui_ROI.slash_pc_mac);  
+    newInputPath = InputPath(1:idcs(end)-1);
+    Info_mat_file = [newInputPath gui_ROI.slash_pc_mac 'MAT_FILES' gui_ROI.slash_pc_mac, 'Info.mat'];
+
+    if ~exist([newInputPath gui_ROI.slash_pc_mac 'MAT_FILES'],'dir'), mkdir([newInputPath gui_ROI.slash_pc_mac 'MAT_FILES']); end
     
-    Info.InputPathMAT = [newInputPath '/MAT_FILES'];
-    Info.OutputPathDICOM = [newInputPath '/OUTPUT_DICOM'];
-    Info.OutputPathMASK = [newInputPath '/OUTPUT_MASKS'];
-    Info.OutputPathRadiomics= [newInputPath '/RADIOMICS_OUTPUT']; 
+    Info.InputPathMAT = [newInputPath gui_ROI.slash_pc_mac 'MAT_FILES'];
+    Info.OutputPathDICOM = [newInputPath gui_ROI.slash_pc_mac 'OUTPUT_DICOM'];
+    Info.OutputPathMASK = [newInputPath gui_ROI.slash_pc_mac 'OUTPUT_MASKS'];
+    Info.OutputPathRadiomics= [newInputPath gui_ROI.slash_pc_mac 'RADIOMICS_OUTPUT']; 
+    Info.ADC_directory= [newInputPath gui_ROI.slash_pc_mac 'ADC']; 
 
     set(gui_ROI.PANELload.TXTload,'string',strtrim(InputPath));
     if exist(Info_mat_file,'file')
         load(Info_mat_file);
 
-        idcs   = strfind(InputPath,'/');
+        Info.InputPath = InputPath;
+        idcs   = strfind(InputPath,gui_ROI.slash_pc_mac);
         newInputPath = InputPath(1:idcs(end)-1);
-        Info.InputPathMAT = [newInputPath '/MAT_FILES'];
-        Info.OutputPathDICOM = [newInputPath '/OUTPUT_DICOM'];
-        Info.OutputPathMASK = [newInputPath '/OUTPUT_MASKS'];
-        Info.OutputPathRadiomics= [newInputPath '/RADIOMICS_OUTPUT'];
+        Info.InputPathMAT = [newInputPath gui_ROI.slash_pc_mac 'MAT_FILES'];
+        Info.OutputPathDICOM = [newInputPath gui_ROI.slash_pc_mac 'OUTPUT_DICOM'];
+        Info.OutputPathMASK = [newInputPath gui_ROI.slash_pc_mac 'OUTPUT_MASKS'];
+        Info.OutputPathRadiomics= [newInputPath gui_ROI.slash_pc_mac 'RADIOMICS_OUTPUT']; 
+        Info.ADC_directory= [newInputPath gui_ROI.slash_pc_mac 'ADC']; 
+
     else
         
         % With Preprocessing_Files, Dicom files are read and information
