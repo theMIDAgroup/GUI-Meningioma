@@ -32,7 +32,6 @@ global pos
 global gui_ROI
 global ROI
 global gui_T1
-global Info
 
 pos.FIGURE_test = pos.FIGURE - [10,25,0,0];
 pos.PANEL_test = [5,5,pos.FIGURE_test(3)-5,pos.FIGURE_test(4)-5];

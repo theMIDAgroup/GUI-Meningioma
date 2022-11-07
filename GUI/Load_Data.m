@@ -61,27 +61,29 @@ else
         Initialize_ROI_brain(it);
     end
     
-    Info_mat_file = [InputPath '_MAT' gui_ROI.slash_pc_mac, 'Info.mat'];
-    
-    if ~exist([InputPath '_MAT'],'dir'), mkdir([InputPath '_MAT']); end
     
     Info.InputPath = InputPath;
-    Info.InputPathMAT = [InputPath '_MAT'];
-    Info.OutputPathDICOM = [InputPath '_OUTPUT_DICOM'];
-    Info.OutputPathMASK = [InputPath '_OUTPUT_MASK'];
-    idcs   = strfind(InputPath,'/');   %VC
+    idcs   = strfind(InputPath,'/');  
     newInputPath = InputPath(1:idcs(end)-1);
+    Info_mat_file = [newInputPath '/MAT_FILES' gui_ROI.slash_pc_mac, 'Info.mat'];
+
+    if ~exist([newInputPath '/MAT_FILES'],'dir'), mkdir([newInputPath '/MAT_FILES']); end
+    
+    Info.InputPathMAT = [newInputPath '/MAT_FILES'];
+    Info.OutputPathDICOM = [newInputPath '/OUTPUT_DICOM'];
+    Info.OutputPathMASK = [newInputPath '/OUTPUT_MASKS'];
     Info.OutputPathRadiomics= [newInputPath '/RADIOMICS_OUTPUT']; 
 
     set(gui_ROI.PANELload.TXTload,'string',strtrim(InputPath));
     if exist(Info_mat_file,'file')
         load(Info_mat_file);
-        
-        Info.InputPath = InputPath;
-        Info.InputPathMAT = [InputPath '_MAT'];
-        Info.OutputPathDICOM = [InputPath '_OUTPUT_DICOM'];
-        Info.OutputPathMASK = [InputPath '_OUTPUT_MASK'];
-        Info.OutputPathRadiomics = [InputPath '_RADIOMICS_OUTPUT']; 
+
+        idcs   = strfind(InputPath,'/');
+        newInputPath = InputPath(1:idcs(end)-1);
+        Info.InputPathMAT = [newInputPath '/MAT_FILES'];
+        Info.OutputPathDICOM = [newInputPath '/OUTPUT_DICOM'];
+        Info.OutputPathMASK = [newInputPath '/OUTPUT_MASKS'];
+        Info.OutputPathRadiomics= [newInputPath '/RADIOMICS_OUTPUT'];
     else
         
         % With Preprocessing_Files, Dicom files are read and information

@@ -166,11 +166,11 @@ pos.PBstart=round([580,15,235,40].*pos.scale_factor);
 %%%% GUI colors
 gui_ROI.first_opening=0;
 gui_ROI.scale4contrast=0.5;
-gui_ROI.bgc = [0.8 0.8 0.8];   % panels [0.4 0.4 0.4]  
+gui_ROI.bgc = [0.6 0.6 0.6] ; 
 gui_ROI.bgc_light = [0.4 0.4 0.4];  
-gui_ROI.fgc = [0,0,0];%[1,1,1];
+gui_ROI.fgc = [1,1,1];
 gui_ROI.fs = 16;
-gui_ROI.bgc_drop = [0.5 0.5 0.5]; % panel background
+gui_ROI.bgc_drop = [0.7 0.7 0.7]; % panel background
 gui_ROI.fgc_drop = [0.4 0.4 0.4];
 gui_ROI.bgc_ppm = [0.8 0.8 0.8];
 gui_ROI.fgc_ppm = [0.4 0.4 0.4];
