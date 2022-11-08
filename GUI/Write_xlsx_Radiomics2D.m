@@ -105,6 +105,9 @@ for val = 1 : Nval
 
 end
 
+if exist(output_file_name,'file')  
+    delete(output_file_name);
+end
 writetable(T,output_file_name,'Sheet',1,'Range','A1')  
 
 end

@@ -91,6 +91,12 @@ end
 if isfield(ROI{it},'segmented_slices_adc')
     ROI{it} = rmfield(ROI{it},'segmented_slices_adc');
 end
+if isfield(ROI{it},'number_of_slices_after_resize_merged')
+    ROI{it} = rmfield(ROI{it},'number_of_slices_after_resize_merged');
+end
+if isfield(ROI{it},'number_of_slices_after_resize_merged_ADC')
+    ROI{it} = rmfield(ROI{it},'number_of_slices_after_resize_merged_ADC');
+end
 
 end
 

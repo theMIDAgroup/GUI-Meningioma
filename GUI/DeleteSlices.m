@@ -154,22 +154,22 @@ else
 % mask is modified, hence the ROI vectors containing ADC fields have to be
 % emptied
 if isfield(ROI{val},'MasksADC')
-    ROI{val}.MasksADC = [];
+    ROI{val} = rmfield(ROI{val},'MasksADC'); %IC
 end
 if isfield(ROI{val},'first_next_ADC')
-    ROI{val}.first_next_ADC = [];
+    ROI{val} = rmfield(ROI{val},'first_next_ADC'); %IC
 end
 if isfield(ROI{val},'pos_ADC_masks')
-    ROI{val}.pos_ADC_masks = [];
+    ROI{val} = rmfield(ROI{val},'pos_ADC_masks'); %IC
 end
 if isfield(ROI{val},'aux_pos_ls_ADC')
-    ROI{val}.aux_pos_ls_ADC = [];
+    ROI{val} = rmfield(ROI{val},'aux_pos_ls_ADC');%IC
 end
 if isfield(ROI{val},'RoiSegmentationPixelIdxListADC')
-    ROI{val}.RoiSegmentationPixelIdxListADC = [];
+     ROI{val} = rmfield(ROI{val},'RoiSegmentationPixelIdxListADC');%IC
 end
 if isfield(ROI{val},'FinalMasksADC')
-    ROI{val}.FinalMasksADC = [];
+    ROI{val} = rmfield(ROI{val},'FinalMasksADC');%IC
 end
 if isfield(ROI{val},'slices_merged')
     ROI{val} = rmfield(ROI{val},'slices_merged');
@@ -193,15 +193,6 @@ if isfield(ROI{val},'number_of_slices_after_resize_merged_ADC')
     ROI{val} = rmfield(ROI{val},'number_of_slices_after_resize_merged_ADC');
 end
 
-%%%%%
-if isfield(Info,'district_part1')
-    Info = rmfield(Info,'district_part1');
-end
-if isfield(Info,'district_part2')
-    Info = rmfield(Info,'district_part2');
-end
-%%%% 
-
 ROI{val}.StartMR(1) = new_StartMR;
 ROI{val}.EndMR(1) = new_EndMR;
 
@@ -212,9 +203,11 @@ set(gui_ROI.PANELroi.PANEL3.TXT2b,'string',num2str(ROI{val}.EndMR))
 % selected district
 PopUp_Districts;
 
-save([Info.InputPathMAT gui_ROI.slash_pc_mac 'ROI.mat'],'ROI','-mat');   
+save([Info.InputPathMAT gui_ROI.slash_pc_mac 'ROI.mat'],'ROI','-mat'); 
+save([Info.InputPathMAT gui_ROI.slash_pc_mac 'Info.mat'],'Info','-mat'); %IC
 
 disp('The selected slices have been deleted')  
 
+GUI_Check_T1; 
 end
 

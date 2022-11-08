@@ -99,8 +99,11 @@ for slice = 1:number_of_slices_after_resize
     T = [T;tempTable];
 end
 
-filename = [Info.OutputPathRadiomics gui_ROI.slash_pc_mac output_file_name];  
-writetable(T,filename,'Sheet',1,'Range','A1')  
+if exist(output_file_name,'file')  
+    delete(output_file_name);
+end
+
+writetable(T,output_file_name,'Sheet',1,'Range','A1')  
 
 end
 

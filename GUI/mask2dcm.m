@@ -103,18 +103,17 @@ elseif ismac
     setenv('FSLDIR', fsldir);
     setenv('FSLOUTPUTTYPE', 'NIFTI_GZ');
     path(path, fsldirmpath);
-    %clear fsldir fsldirmpath;
 
-    stringa_coregistr = ['/usr/local/fsl/bin/flirt -in ' Info.OutputPathMASK,'/T1.nii.gz -ref ' Info.OutputPathMASK,'/ADC.nii.gz -out ', Info.OutputPathMASK,'/coregistration_T1_ADC.nii -omat ' Info.OutputPathMASK,'/coregistration_matrix.mat -bins 256 -cost corratio -dof 12 -interp trilinear -searchrx -90 90 -searchry -90 90 -searchrz -90 90'];
-    call_fsl(stringa_coregistr);
+    string_coregistr = ['/usr/local/fsl/bin/flirt -in ' Info.OutputPathMASK,'/T1.nii.gz -ref ' Info.OutputPathMASK,'/ADC.nii.gz -out ', Info.OutputPathMASK,'/coregistration_T1_ADC.nii -omat ' Info.OutputPathMASK,'/coregistration_matrix.mat -bins 256 -cost corratio -dof 12 -interp trilinear -searchrx -90 90 -searchry -90 90 -searchrz -90 90'];
+    call_fsl(string_coregistr);
 
     for val = 1 : Nval
         if ROI{val}.Enable
             volume_mask_directory = [Info.OutputPathMASK gui_ROI.slash_pc_mac...
                 'MASK_' regexprep(ROI{val}.Name,'[^\w'']','')];
 
-            stringa_adc_mask = ['/usr/local/fsl/bin/flirt -in ' volume_mask_directory ,'/T1_mask.nii.gz -ref ' Info.OutputPathMASK,'/ADC.nii.gz -applyxfm -init ', Info.OutputPathMASK,'/coregistration_matrix.mat -o ' volume_mask_directory,'/ADC_mask.nii.gz'];
-            call_fsl(stringa_adc_mask);
+            string_adc_mask = ['/usr/local/fsl/bin/flirt -in ' volume_mask_directory ,'/T1_mask.nii.gz -ref ' Info.OutputPathMASK,'/ADC.nii.gz -applyxfm -init ', Info.OutputPathMASK,'/coregistration_matrix.mat -o ' volume_mask_directory,'/ADC_mask.nii.gz'];
+            call_fsl(string_adc_mask);
         end
     end
 

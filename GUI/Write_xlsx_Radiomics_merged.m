@@ -93,8 +93,11 @@ tempTable.GLV1 = aux3.glszmTextures.GLV;
 tempTable.ZSV = aux3.glszmTextures.ZSV;
 T = [T;tempTable];
 
-filename = [Info.OutputPathRadiomics gui_ROI.slash_pc_mac output_file_name];   
-writetable(T,filename,'Sheet',1,'Range','A1')
+if exist(output_file_name,'file')  
+    delete(output_file_name);
+end
+
+writetable(T,output_file_name,'Sheet',1,'Range','A1')  
 
 end
 

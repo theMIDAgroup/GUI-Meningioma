@@ -62,7 +62,7 @@ position(1,2)=round((scrsz(1,4)-position(1,4))/2);
 vect_pixel=[1920 1058 1920 1058];
 vect_pixel_screen=[scrsz(1,3),scrsz(1,4),scrsz(1,3),scrsz(1,4)];
 pos.scale_factor=(vect_pixel_screen./vect_pixel).*[screen_x/.6 screen_y/.7 screen_x/.6 screen_y/.7];
-
+gui_ROI.scale_factor=(vect_pixel_screen./vect_pixel).*[screen_x/.6 screen_y/.7 screen_x/.6 screen_y/.7]; % VC
 pos.FIGURE=position;
 
 %%%% PANEL LOAD - position
@@ -83,14 +83,14 @@ pos.PANELappend_ROI.panel=round([820,410,330,160].*pos.scale_factor);
 pos.PANELsame_roi.panel=round([820,240,330,160].*pos.scale_factor);
 
 %%%% PANEL GUI Check - position
-pos.PANELgui_check.panel=round([820,110,330,120].*pos.scale_factor);  
+pos.PANELgui_check.panel=round([820,110,330,120].*pos.scale_factor); 
 
 %%%% PANEL radiomics quantization - position  
 pos.PANELquantAlgo.panel=round([820,15,330,85].*pos.scale_factor); 
 
-pos.PANELax.ax=round([-70,5,575,575].*pos.scale_factor);
+pos.PANELax.ax=round([-30,0,575,575].*pos.scale_factor); % VC
 pos.PANELax.SLIDERimage=round([60,580,330,25].*pos.scale_factor);
-pos.PANELax.SLIDERcontrast=round([420,5,25,575].*pos.scale_factor);
+pos.PANELax.SLIDERcontrast=round([420,65,25,535].*pos.scale_factor);
 pos.PANELax.SLIDERwindowUp_edit=round([450,500,80,25].*pos.scale_factor);
 pos.PANELax.SLIDERwindowDown_edit=round([450,100,80,25].*pos.scale_factor);
 pos.PANELax.SLIDERwindowUp_push=round([450,450,80,25].*pos.scale_factor);
@@ -98,7 +98,7 @@ pos.PANELax.SLIDERwindowDown_push=round([450,50,80,25].*pos.scale_factor);
 pos.PANELax.ZoomIn=round([450,310,25,25].*pos.scale_factor);
 pos.PANELax.ZoomOut=round([450,270,25,25].*pos.scale_factor);
 pos.PANELax.TXT=round([-60,605,575,27].*pos.scale_factor);
-pos.PANELax.colorbar=round([10,5,25,575].*pos.scale_factor);  
+pos.PANELax.colorbar=round([100,25,25,505].*pos.scale_factor); %VC 
 
 pos.PANELdelete_slices.which_tumour=round([150,85,60,28].*pos.scale_factor);
 pos.PANELdelete_slices.new_Start=round([150,50,60,28].*pos.scale_factor);
@@ -120,7 +120,7 @@ pos.PANELsame_roi.val_part2=round([150,50,60,28].*pos.scale_factor);
 pos.PANELsame_roi.val_part3=round([150,10,60,28].*pos.scale_factor);  
 
 pos.PANELsame_roi.merge_components=round([230,70,90,25].*pos.scale_factor);
-pos.PANELsame_roi.merge_3components=round([230,30,90,25].*pos.scale_factor); 
+pos.PANELsame_roi.merge_3components=round([230,30,90,25].*pos.scale_factor);  
 pos.PANELsame_roi.TXTval_part1=round([5,90,130,28].*pos.scale_factor);
 pos.PANELsame_roi.TXTval_part2=round([5,50,130,28].*pos.scale_factor);
 pos.PANELsame_roi.TXTval_part3=round([5,10,130,28].*pos.scale_factor);  
@@ -166,11 +166,11 @@ pos.PBstart=round([580,15,235,40].*pos.scale_factor);
 %%%% GUI colors
 gui_ROI.first_opening=0;
 gui_ROI.scale4contrast=0.5;
-gui_ROI.bgc = [0.6 0.6 0.6] ; 
+gui_ROI.bgc = [0.4 0.4 0.4] ; 
 gui_ROI.bgc_light = [0.4 0.4 0.4];  
 gui_ROI.fgc = [1,1,1];
 gui_ROI.fs = 16;
-gui_ROI.bgc_drop = [0.7 0.7 0.7]; % panel background
+gui_ROI.bgc_drop = [0.5 0.5 0.5];  
 gui_ROI.fgc_drop = [0.4 0.4 0.4];
 gui_ROI.bgc_ppm = [0.8 0.8 0.8];
 gui_ROI.fgc_ppm = [0.4 0.4 0.4];
@@ -220,7 +220,7 @@ gui_ROI.PANELsame_roi.panel=uipanel('parent',gui_ROI.fig,'Title','Merge componen
 
 gui_ROI.PANELquantAlgo.panel = uipanel('parent',gui_ROI.fig,'Title','Quantization algorithm','units','pixel',...
     'Position',pos.PANELquantAlgo.panel,'FontWeight','bold','FontSize',gui_ROI.fs,'visible','on',...
-    'BackGroundColor',gui_ROI.bgc_drop, 'ForeGroundColor',gui_ROI.fgc);  
+    'BackGroundColor',gui_ROI.bgc_drop, 'ForeGroundColor',gui_ROI.fgc);
 
 %% GUI CHECK PANELS
 
@@ -371,7 +371,7 @@ gui_ROI.PANELsame_roi.TXTval_part3= uicontrol(gui_ROI.PANELsame_roi.panel,'style
     'ForeGroundColor',gui_ROI.fgc,...
     'FontSize',gui_ROI.fs,...
     'position',pos.PANELsame_roi.TXTval_part3,...
-    'enable','on');  
+    'enable','on'); 
 
 gui_ROI.PANELsame_roi.val_part1=uicontrol(gui_ROI.PANELsame_roi.panel,'Style','edit',...
     'string','',...
@@ -558,6 +558,7 @@ gui_ROI.PANELax.TXT= uicontrol(gui_ROI.PANELax.panel,'style', 'text',...
     'ForeGroundColor',gui_ROI.fgc,...
     'FontSize',gui_ROI.fs,...
     'position', pos.PANELax.TXT);
+
 gui_ROI.PANELax.ax=axes('parent',gui_ROI.PANELax.panel,...
     'units','pixel',...
     'Position',pos.PANELax.ax,...

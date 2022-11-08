@@ -39,6 +39,7 @@ if (ROI{val1}.Segmented && ROI{val2}.Segmented) || (~ROI{val1}.Segmented && ~ROI
     if ROI{val1}.RoiSlice(end)+1 ~= ROI{val2}.RoiSlice(1)
         msgbox('Error: slices are not consecutive');
     else
+        RoiSlice_val1_old = ROI{val1}.RoiSlice; 
         ROI{val1}.RoiSlice = [ROI{val1}.RoiSlice(1:end); ROI{val2}.RoiSlice(1:end)];
         ROI{val1}.RoiRegion = [ROI{val1}.RoiRegion(1:end,:); ROI{val2}.RoiRegion(1:end,:)];
         ROI{val1}.RoiPosition = [ROI{val1}.RoiPosition(1:end), ROI{val2}.RoiPosition(1:end)];
@@ -81,8 +82,8 @@ if (ROI{val1}.Segmented && ROI{val2}.Segmented) || (~ROI{val1}.Segmented && ~ROI
             % if the length of aux_pos_fwd is less than the slices number,
             % fill aux_pos_fwd with [] to reach the correct slices number,
             % then attach the second ROI
-            if length(ROI{val1}.aux_pos_fwd) < length(ROI{val1}.RoiSlice)
-                for i = (length(ROI{val1}.aux_pos_fwd)+1):length(ROI{val1}.RoiSlice)
+            if length(ROI{val1}.aux_pos_fwd) < length(RoiSlice_val1_old)
+                for i = (length(ROI{val1}.aux_pos_fwd)+1):length(RoiSlice_val1_old)  
                     ROI{val1}.aux_pos_fwd(i).row = [];
                     ROI{val1}.aux_pos_fwd(i).col = [];
                 end
@@ -92,7 +93,7 @@ if (ROI{val1}.Segmented && ROI{val2}.Segmented) || (~ROI{val1}.Segmented && ~ROI
 
         elseif ~isfield(ROI{val1},'aux_pos_fwd') && ...
                 isfield(ROI{val2},'aux_pos_fwd')
-            for i = 1:length(ROI{val1}.RoiSlice)
+            for i = 1:length(RoiSlice_val1_old) 
                 ROI{val1}.aux_pos_fwd(i).row = [];
                 ROI{val1}.aux_pos_fwd(i).col = [];
             end
@@ -102,30 +103,30 @@ if (ROI{val1}.Segmented && ROI{val2}.Segmented) || (~ROI{val1}.Segmented && ~ROI
 
         % Introduced with ADC analysis - ADC analysis has to be done again
         % if the mask is modified, hence the ROI vectors containing ADC
-        % fields have to be emptied
+        % fields have to be removed
         if isfield(ROI{val1},'MasksADC') && ...
                 isfield(ROI{val2},'MasksADC')
-            ROI{val1}.MasksADC = [];
+            ROI{val1} = rmfield(ROI{val1},'MasksADC'); %IC
         end
         if isfield(ROI{val1},'first_next_ADC') && ...
                 isfield(ROI{val2},'first_next_ADC')
-            ROI{val1}.first_next_ADC = [];
+            ROI{val1} = rmfield(ROI{val1},'first_next_ADC'); %IC
         end
         if isfield(ROI{val1},'pos_ADC_masks') && ...
                 isfield(ROI{val2},'pos_ADC_masks')
-            ROI{val1}.pos_ADC_masks = [];
+            ROI{val1} = rmfield(ROI{val1},'pos_ADC_masks'); %IC
         end
         if isfield(ROI{val1},'aux_pos_ls_ADC') && ...
                 isfield(ROI{val2},'aux_pos_ls_ADC')
-            ROI{val1}.aux_pos_ls_ADC = [];
+            ROI{val1} = rmfield(ROI{val1},'aux_pos_ls_ADC'); %IC
         end
         if isfield(ROI{val1},'RoiSegmentationPixelIdxListADC') && ...
                 isfield(ROI{val2},'RoiSegmentationPixelIdxListADC')
-            ROI{val1}.RoiSegmentationPixelIdxListADC = [];
+            ROI{val1} = rmfield(ROI{val1},'RoiSegmentationPixelIdxListADC'); %IC
         end
         if isfield(ROI{val1},'FinalMasksADC') && ...
                 isfield(ROI{val2},'FinalMasksADC')
-            ROI{val1}.FinalMasksADC = [];
+            ROI{val1} = rmfield(ROI{val1},'FinalMasksADC'); %IC
         end
         if isfield(ROI{val1},'slices_merged')
             ROI{val1} = rmfield(ROI{val1},'slices_merged');
@@ -153,9 +154,13 @@ if (ROI{val1}.Segmented && ROI{val2}.Segmented) || (~ROI{val1}.Segmented && ~ROI
         PopUp_Districts;
 
         save([Info.InputPathMAT gui_ROI.slash_pc_mac 'ROI.mat'],'ROI','-mat');
+        save([Info.InputPathMAT gui_ROI.slash_pc_mac 'Info.mat'],'Info','-mat'); %IC
+        
         disp(['ROI ', num2str(val2), ' has been attached to ROI ', num2str(val1)])
     end
+
+    GUI_Check_T1;
 else
-    msgbox('Error: one slice has not been analysed yet')
+    msgbox('Error: one district has not been analysed yet') %IC 3/11
 end
 
