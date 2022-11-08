@@ -8,7 +8,7 @@
 % -------------------------------------------------------------------------
 %%%% called by: radiomics_T1_and_Continue()
 %%%%            Save_Last_Slice_ADC()
-%%%% call: Write_xlsx_Radiomics()
+%%%% call: Write_csv_Radiomics()
 
 function radiomics_general(mri_img, volume_image_field_name,...
     mask_img, volume_mask_field_name, globalTextures_field_name,...
@@ -25,7 +25,7 @@ warning off;
 scanType = 'MRscan';
 R=1;
 scale = 1;
-% quantAlgo info in included in the inputs of the function
+% quantAlgo info is included in the inputs of the function
 Ng = 255;
 
 % Load MRI volume 
@@ -98,7 +98,7 @@ for val = 1 : Nval
     end
 end
             
-Write_xlsx_Radiomics(globalTextures_field_name,matrix_based_textures_field_name,...
+Write_csv_Radiomics(globalTextures_field_name,matrix_based_textures_field_name,...
                 nonTexture_field_name,output_file_name);
 disp('radiomics 3D done!')
 

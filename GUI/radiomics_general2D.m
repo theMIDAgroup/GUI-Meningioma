@@ -7,7 +7,7 @@
 % -------------------------------------------------------------------------
 %%%% called by: radiomics_T1_and_Continue()
 %%%%            Save_Last_Slice_ADC()
-%%%% call: Write_xlsx_Radiomics2D()
+%%%% call: Write_csv_Radiomics2D()
 
 function radiomics_general2D(mri_img, volume_image_field_name,...
     mask_img, volume_mask_field_name, number_of_slices_ROIonly_field_name, globalTextures_field_name,...
@@ -141,7 +141,9 @@ for val = 1 : Nval
     end
 end
 
-disp('radiomics 2D done!')
-Write_xlsx_Radiomics2D(number_of_slices_ROIonly_field_name,globalTextures_field_name,matrix_based_textures_field_name,...
+Write_csv_Radiomics2D(number_of_slices_ROIonly_field_name,globalTextures_field_name,matrix_based_textures_field_name,...
     nonTexture_field_name,output_file_name);
+
+disp('radiomics 2D done!')
+
 end

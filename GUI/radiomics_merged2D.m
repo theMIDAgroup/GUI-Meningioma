@@ -7,7 +7,7 @@
 % GUI). The utilized package refers to <https://github.com/mvallieres/radiomics/>.
 % -------------------------------------------------------------------------
 %%%% called by: Merge_sameROI()
-%%%% call: Write_xlsx_Radiomics()
+%%%% call: Write_csv_Radiomics()
 
 function radiomics_merged2D(mri_img, volume_image_field_name,...
     mask_img, volume_mask_field_name, number_of_slices_ROIonly_field_name, globalTextures_field_name,...
@@ -140,8 +140,9 @@ end
 radiomics2D_merge{1} = setfield(radiomics2D_merge{1},matrix_based_textures_field_name,aux_radiomics2D_2);
 
 
-Write_xlsx_Radiomics2D_merged(number_of_slices_ROIonly_field_name,globalTextures_field_name,...
+Write_csv_Radiomics2D_merged(number_of_slices_ROIonly_field_name,globalTextures_field_name,...
                 matrix_based_textures_field_name,nonTexture_field_name,output_file_name);
+
 disp('Radiomics 2D merged done!')
 
 end

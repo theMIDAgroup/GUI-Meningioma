@@ -7,7 +7,7 @@
 % GUI). The utilized package refers to <https://github.com/mvallieres/radiomics/>.
 % -------------------------------------------------------------------------
 %%%% called by: Merge_sameROI()
-%%%% call: Write_xlsx_Radiomics_merged()
+%%%% call: Write_csv_Radiomics_merged()
 
 function radiomics_merged(mri_img, volume_image_field_name,...
     mask_img, volume_mask_field_name, globalTextures_field_name,...
@@ -15,7 +15,6 @@ function radiomics_merged(mri_img, volume_image_field_name,...
     pixelW, sliceS, quantAlgo)
 
 global Info
-global ROI 
 global radiomics_merge
 
 warning off;
@@ -90,7 +89,7 @@ matrix_based_textures = setfield(matrix_based_textures,'ngtdmTextures',...
 radiomics_merge{1}= setfield(radiomics_merge{1},matrix_based_textures_field_name, matrix_based_textures);
 
 
-Write_xlsx_Radiomics_merged(globalTextures_field_name,matrix_based_textures_field_name,...
+Write_csv_Radiomics_merged(globalTextures_field_name,matrix_based_textures_field_name,...
                 nonTexture_field_name,output_file_name);
 
 disp('Radiomics 3D merged done!')
