@@ -4,7 +4,7 @@ Matlab Graphic User Interfaces (GUIs) for image visualization, segmentation and 
 
 The code is based on the following publications:
 
-*2022 I. Cama, V. Candiani, M. Piana and C. Campi, "A comprehensive tool for image segmentation and radiomics analysis of MR images", to be submitted.
+*2022 I. Cama, V. Candiani, M. Piana and C. Campi, "A comprehensive package for segmentation and radiomics analysis of Magnetic Resonance images", to be submitted.
 
 *2022 I. Cama, V. Candiani, L. Roccatagliata, P. Fiaschi, G. Rebella, M. Resaz, M. Piana and C. Campi, "Segmentation accuracy and the reliability of radiomics features", submitted.
 
