@@ -57,5 +57,5 @@ T_quality = table(index_quality','VariableNames',{'Quality'});
 T_metrics = [T_quality,T_consistency,T_robustness,T_instability];
 T_metrics.Marginal = T_metrics.Consistency+T_metrics.Robustness+T_metrics.Instability+T_metrics.Quality;
 
-writetable(T_metrics,'table_correlation_coefficients.xlsx','WriteRowNames',true) 
+writetable(T_metrics,'table_correlation_coefficients.csv','WriteRowNames',true) 
 end

@@ -40,13 +40,13 @@ for p = 1 : patients
         val = Info.district_part1;
 
         if isfield(Info,'district_part3')
-            radiomics_file2D = [Info.OutputPathRadiomics '/' subj '_radiomics2D_merged3.xlsx'];
+            radiomics_file2D = [Info.OutputPathRadiomics '/' subj '_radiomics2D_merged3.csv'];
         else
-            radiomics_file2D = [Info.OutputPathRadiomics '/' subj '_radiomics2D_merged.xlsx'];
+            radiomics_file2D = [Info.OutputPathRadiomics '/' subj '_radiomics2D_merged.csv'];
         end
 
     else
-        radiomics_file2D = [Info.OutputPathRadiomics '/' subj '_radiomics2D.xlsx'];
+        radiomics_file2D = [Info.OutputPathRadiomics '/' subj '_radiomics2D.csv'];
     end
     files{p} = radiomics_file2D;
     subj_names{p} = subj;
