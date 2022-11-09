@@ -1,12 +1,13 @@
 %% radiomics_merged2D()
-% LISCOMP Lab 2021- 2022, https://liscomp.dima.unige.it
+% LISCOMP Lab 2021 - 2022, https://liscomp.dima.unige.it
 % -------------------------------------------------------------------------
 % DESCRIPTION: 
 % This function computes the 2D radiomics features associated to each new
-% slice coming from two merged ROIs (with the button "APPEND" in the main 
+% slice coming from two merged ROIs (with the button 'APPEND' in the main 
 % GUI). The utilized package refers to <https://github.com/mvallieres/radiomics/>.
 % -------------------------------------------------------------------------
 %%%% called by: Merge_sameROI()
+%%%%            Merge_sameROI3()
 %%%% call: Write_csv_Radiomics()
 
 function radiomics_merged2D(mri_img, volume_image_field_name,...
@@ -143,6 +144,10 @@ radiomics2D_merge{1} = setfield(radiomics2D_merge{1},matrix_based_textures_field
 Write_csv_Radiomics2D_merged(number_of_slices_ROIonly_field_name,globalTextures_field_name,...
                 matrix_based_textures_field_name,nonTexture_field_name,output_file_name);
 
-disp('Radiomics 2D merged done!')
+if contains(mask_img,'adc') 
+    disp('Radiomics merged ADC 2D done!')
+else 
+    disp('Radiomics merged T1 2D done!')
+end
 
 end

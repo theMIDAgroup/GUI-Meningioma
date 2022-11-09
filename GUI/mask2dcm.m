@@ -1,5 +1,5 @@
 %% mask2dcm()
-% LISCOMP Lab 2021- 2022, https://liscomp.dima.unige.it
+% LISCOMP Lab 2021 - 2022, https://liscomp.dima.unige.it
 % -------------------------------------------------------------------------
 % DESCRIPTION:  
 % This function transforms:
@@ -13,7 +13,7 @@
 %   the transformation matrix (using FSL)
 % - run maskT1_2_maskADC.py to produce ADC masks (one for each ROI)
 % - come back to Matlab and run mask_adc_nii2mat.m
-% If using Mac, all the above steps are integrated in this function
+% If using Mac, all the above steps are integrated in this function.
 % -------------------------------------------------------------------------
 %%%% called by: radiomics_T1_and_Continue()
 %%%% call: mask_adc_nii2mat() if using Mac

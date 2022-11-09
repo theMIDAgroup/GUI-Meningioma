@@ -1,5 +1,5 @@
 %% Enable_Dicom()
-% LISCOMP Lab 2021- 2022, https://liscomp.dima.unige.it
+% LISCOMP Lab 2021 - 2022, https://liscomp.dima.unige.it
 % -------------------------------------------------------------------------
 % DESCRIPTION: 
 % this function enables the saving of the results in Dicom format.

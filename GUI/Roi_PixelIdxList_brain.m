@@ -1,5 +1,5 @@
 %% Roi_PixelIdxList_brain()
-% LISCOMP Lab 2021- 2022 https://liscomp.dima.unige.it
+% LISCOMP Lab 2021 - 2022 https://liscomp.dima.unige.it
 % -------------------------------------------------------------------------
 % DESCRIPTION: 
 % This function sets in the struct ROI the pixels associated to the 'val' 

@@ -1,5 +1,5 @@
 %% Initialize_ROI_brain()
-% LISCOMP Lab 2021- 2022, https://liscomp.dima.unige.it
+% LISCOMP Lab 2021 - 2022, https://liscomp.dima.unige.it
 % -------------------------------------------------------------------------
 % DESCRIPTION: 
 % This function creates the struct ROI and sets the fields of the struct 

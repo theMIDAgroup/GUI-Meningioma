@@ -1,10 +1,10 @@
 %% Roi_End()
-% LISCOMP Lab 2021- 2022, https://liscomp.dima.unige.it
+% LISCOMP Lab 2021 - 2022, https://liscomp.dima.unige.it
 % -------------------------------------------------------------------------
 % DESCRIPTION: 
 % This function ends the current ROI and saves it.
 % -------------------------------------------------------------------------
-%%%% called by: main_gui_brain(), button "END"
+%%%% called by: main_gui_brain(), button 'END'
 %%%% call: Enable_Roi() 
 %%%%       Enable_Txt()
 

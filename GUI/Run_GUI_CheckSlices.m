@@ -1,5 +1,5 @@
 %% Run_GUI_CheckSlices()
-% LISCOMP Lab 2021- 2022 https://liscomp.dima.unige.it
+% LISCOMP Lab 2021 - 2022 https://liscomp.dima.unige.it
 % -------------------------------------------------------------------------
 % DESCRIPTION: 
 % This function sets all the needed parameters to open a GUI without
@@ -35,7 +35,7 @@ gui_ROI.scale4contrast=0.5;
 
 gui_ROI.bgc = [0.4 0.4 0.4]; 
 gui_ROI.bgc_light = [0.4 0.4 0.4];
-gui_ROI.fgc = [1,1,1]; %[1,0,0];
+gui_ROI.fgc = [1,1,1]; 
 gui_ROI.fs = 16;
 gui_ROI.bgc_drop = [0.5 0.5 0.5];
 gui_ROI.fgc_drop = [0.4 0.4 0.4];

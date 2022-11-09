@@ -1,5 +1,5 @@
 %% Draw_Roi()
-% LISCOMP Lab 2021- 2022, https://liscomp.dima.unige.it
+% LISCOMP Lab 2021 - 2022, https://liscomp.dima.unige.it
 % -------------------------------------------------------------------------
 % DESCRIPTION: 
 % This function draws a rectangular ROI and stores RoiRegion in the struct 

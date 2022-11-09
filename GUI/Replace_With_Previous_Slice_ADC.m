@@ -1,5 +1,5 @@
 %% Replace_With_Previous_Slice_ADC()
-% LISCOMP Lab 2021- 2022, https://liscomp.dima.unige.it
+% LISCOMP Lab 2021 - 2022, https://liscomp.dima.unige.it
 % -------------------------------------------------------------------------
 % DESCRIPTION: 
 % This function replaces the polygon in the current slice with the one of 
@@ -11,11 +11,8 @@
 
 function Replace_With_Previous_Slice_ADC()
 
-global gui_ROI
 global ROI
 global gui_ADC
-global Info
-
 
 ROI{gui_ADC.val}.aux_pos_ls_ADC(gui_ADC.SlicesList{gui_ADC.val}(gui_ADC.k)) =...
     ROI{gui_ADC.val}.aux_pos_ls_ADC(gui_ADC.SlicesList{gui_ADC.val}(gui_ADC.k - 1));

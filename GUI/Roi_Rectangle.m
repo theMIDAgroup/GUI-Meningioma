@@ -1,11 +1,11 @@
 %% Roi_Rectangle()
-% LISCOMP Lab 2021- 2022, https://liscomp.dima.unige.it
+% LISCOMP Lab 2021 - 2022, https://liscomp.dima.unige.it
 % -------------------------------------------------------------------------
 % DESCRIPTION: 
 % This function plots a rectangular ROI using Put_Roi() and sets commands  
 % in the ROI panel.
 % -------------------------------------------------------------------------
-%%%% called by: main_gui_brain(), panel ROI (dropdown menu)
+%%%% called by: main_gui_brain(), panel 'ROI' (dropdown menu)
 %%%% call: Put_Roi()
 
 function Roi_Rectangle()

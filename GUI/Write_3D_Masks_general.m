@@ -1,5 +1,5 @@
 %% Write_3D_Masks_general()
-% LISCOMP Lab 2021- 2022, https://liscomp.dima.unige.it
+% LISCOMP Lab 2021 - 2022, https://liscomp.dima.unige.it
 % -------------------------------------------------------------------------
 % DESCRIPTION: 
 % This function saves the volume mask associated to each ROI in .mat 

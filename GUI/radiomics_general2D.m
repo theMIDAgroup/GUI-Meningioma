@@ -1,5 +1,5 @@
 %% radiomics_general2D()
-% LISCOMP Lab 2021- 2022, https://liscomp.dima.unige.it
+% LISCOMP Lab 2021 - 2022, https://liscomp.dima.unige.it
 % -------------------------------------------------------------------------
 % DESCRIPTION: 
 % This function computes the 2D radiomics features associated to each ROI. 
@@ -144,6 +144,10 @@ end
 Write_csv_Radiomics2D(number_of_slices_ROIonly_field_name,globalTextures_field_name,matrix_based_textures_field_name,...
     nonTexture_field_name,output_file_name);
 
-disp('radiomics 2D done!')
+if contains(mask_img,'adc') 
+    disp('Radiomics ADC 2D done!')
+else 
+    disp('Radiomics T1 2D done!')
+end
 
 end

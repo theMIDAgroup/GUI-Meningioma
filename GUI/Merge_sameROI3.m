@@ -1,5 +1,5 @@
 %% Merge_sameROI3()
-% LISCOMP Lab 2021- 2022, https://liscomp.dima.unige.it
+% LISCOMP Lab 2021 - 2022, https://liscomp.dima.unige.it
 % -------------------------------------------------------------------------
 % DESCRIPTION: 
 % You can use this option when you have three connected components of the
@@ -7,13 +7,13 @@
 % different ROIs, then you press 'START ANALYSIS'. When T1 and ADC
 % analysis has finished, you can come back to the GUI and 
 % 1) first merge two components with the button "MERGE":
-% - ROI part 1 is the 1st connected component
-% - ROI part 2 is the 2nd connected component
-% - click MERGE to merge the masks of the two components and compute the
+% - 'ROI part 1' is the 1st connected component
+% - 'ROI part 2' is the 2nd connected component
+% - click 'MERGE' to merge the masks of the two components and compute the
 %   radiomics of their union.
 % 2) then merge the first two components with the third component with the 
-% button "MERGE 3"
-% - ROI part 3 is the 3rd connected component
+%    button 'MERGE 3'
+% - 'ROI part 3' is the 3rd connected component
 % This function creates a new mat file with the mask of the union of the
 % three components (one file for T1 and another one for ADC). Moreover, 
 % this function creates a new csv file with the radiomics of the union 
@@ -24,7 +24,7 @@
 % Note that in the global variable ROI, attributes remain unchanged, so
 % the three connected components are still considered as different ROIs.
 % -------------------------------------------------------------------------
-%%%% called by: main_gui_brain(), button "MERGE 3"
+%%%% called by: main_gui_brain(), button 'MERGE 3'
 %%%% call: radiomics_merged()
 %%%%       radiomics_merged2D()
 

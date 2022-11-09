@@ -1,5 +1,5 @@
 %% Merge_sameROI()
-% LISCOMP Lab 2021- 2022, https://liscomp.dima.unige.it
+% LISCOMP Lab 2021 - 2022, https://liscomp.dima.unige.it
 % -------------------------------------------------------------------------
 % DESCRIPTION:
 % You can use this option when you have two connected components of the
@@ -7,9 +7,9 @@
 % different ROIs, then you press 'START ANALYSIS'. When T1 and ADC
 % analysis has finished, you can come back to the GUI and merge the two
 % components:
-% - ROI part 1 is the 1st connected component
-% - ROI part 2 is the 2nd connected component
-% - click MERGE to merge the masks of the two components and compute the
+% - 'ROI part 1' is the 1st connected component
+% - 'ROI part 2' is the 2nd connected component
+% - click 'MERGE' to merge the masks of the two components and compute the
 %   radiomics of their union.
 % This function creates a new mat file with the mask of the union of the
 % two components (one file for T1 and another one for ADC). Moreover, this
@@ -21,7 +21,7 @@
 % Note that in the global variable ROI, attributes remain unchanged, so
 % the two connected components are still considered as two different ROIs.
 % -------------------------------------------------------------------------
-%%%% called by: main_gui_brain(), button "MERGE"
+%%%% called by: main_gui_brain(), button 'MERGE'
 %%%% call: radiomics_merged()
 %%%%       radiomics_merged2D()
 
@@ -112,19 +112,19 @@ else
             radiomics_merged2D('volume_image_adc.mat', 'volume_image_adc', 'volume_mask_adc_merged.mat',...
                 'volume_mask','number_of_slices_after_resize_merged_ADC',...
                 'globalTextures_ADC', 'matrix_based_textures_ADC',...
-                'nonTexture_ADC',[Info.OutputPathRadiomics gui_ROI.slash_pc_mac subj '_radiomics2D_ADC_merged.xlsx'],...
-                Info.PixelSizeADC(1),Info.PixelSizeADC(3), quantAlgo); %IC
+                'nonTexture_ADC',[Info.OutputPathRadiomics gui_ROI.slash_pc_mac subj '_radiomics2D_ADC_merged.csv'],...
+                Info.PixelSizeADC(1),Info.PixelSizeADC(3), quantAlgo); 
 
             radiomics_merged('volume_image_adc.mat', 'volume_image_adc', 'volume_mask_adc_merged.mat',...
                 'volume_mask',...
                 'globalTextures_ADC', 'matrix_based_textures_ADC',...
-                'nonTexture_ADC',[Info.OutputPathRadiomics gui_ROI.slash_pc_mac subj '_radiomics_ADC_merged.xlsx'],...
-                Info.PixelSizeADC(1),Info.PixelSizeADC(3), quantAlgo); %IC
+                'nonTexture_ADC',[Info.OutputPathRadiomics gui_ROI.slash_pc_mac subj '_radiomics_ADC_merged.csv'],...
+                Info.PixelSizeADC(1),Info.PixelSizeADC(3), quantAlgo); 
 
 
         end
     end
-    %30/05
+
     save([Info.InputPathMAT gui_ROI.slash_pc_mac 'ROI.mat'],'ROI','-mat');
     save([Info.InputPathMAT gui_ROI.slash_pc_mac 'Info.mat'],'Info','-mat');
 end

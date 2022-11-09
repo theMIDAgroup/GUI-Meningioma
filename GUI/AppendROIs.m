@@ -1,29 +1,32 @@
 %% AppendROIs
-% LISCOMP Lab 2021- 2022, https://liscomp.dima.unige.it
+% LISCOMP Lab 2021 - 2022, https://liscomp.dima.unige.it
 % -------------------------------------------------------------------------
 % DESCRIPTION:
-% This function allows one to append some slices to the selected ROI.
+% This function allows the user to append some slices to the selected ROI.
 % - 'ROI head' is the leading ROI, to which one aims to append the slices
 % - 'ROI tail' is the ROI containing the slices one aims to append
-% - click APPEND to update the selected ROI
+% - click 'APPEND' to update the selected ROI
+% The numbers of 'ROI head' and 'ROI tail' do not have to be consecutive, 
+% but the correspondent slices must be.
 % You can use this function
 % - just after you create the ROIs (for the first time)
-% - when the analysis has finished but you want to modify your ROI (then
-%   click START ANALYSIS and check all the slices again)
+% - when the analysis has finished but you want to modify your ROI (all the
+% changes to ROI.mat will be saved automatically, GUI 2 will open to check 
+% all the slices again, compute T1 radiomics and update ADC slices and
+% radiomics.
 % Note that 'ROI tail' will be re-initialized.
-% Note that this function does not delete files from your PC folders (if
-% you started the analysis before APPEND, you would still find
-% folders containing mat, xsl, dcm files etc related to 'ROI tail').
-% The global variable ROI is saved in any of these cases.
+% Note that this function deletes files related to 'ROI tail' from your 
+% computer folders .
 % -------------------------------------------------------------------------
-%%%% called by: main_gui_brain(), button "APPEND"
+%%%% called by: main_gui_brain(), button 'APPEND'
 %%%% call: PopUp_Districts()
 
 global ROI
 global Info;
 global gui_ROI;
 
-load([Info.InputPath '_MAT' gui_ROI.slash_pc_mac, 'ROI.mat']);
+
+load([Info.InputPathMAT gui_ROI.slash_pc_mac, 'ROI.mat']);
 
 % choose the 2 to-be-attached districts
 % first district (ROI head)
@@ -106,27 +109,27 @@ if (ROI{val1}.Segmented && ROI{val2}.Segmented) || (~ROI{val1}.Segmented && ~ROI
         % fields have to be removed
         if isfield(ROI{val1},'MasksADC') && ...
                 isfield(ROI{val2},'MasksADC')
-            ROI{val1} = rmfield(ROI{val1},'MasksADC'); %IC
+            ROI{val1} = rmfield(ROI{val1},'MasksADC');  
         end
         if isfield(ROI{val1},'first_next_ADC') && ...
                 isfield(ROI{val2},'first_next_ADC')
-            ROI{val1} = rmfield(ROI{val1},'first_next_ADC'); %IC
+            ROI{val1} = rmfield(ROI{val1},'first_next_ADC');  
         end
         if isfield(ROI{val1},'pos_ADC_masks') && ...
                 isfield(ROI{val2},'pos_ADC_masks')
-            ROI{val1} = rmfield(ROI{val1},'pos_ADC_masks'); %IC
+            ROI{val1} = rmfield(ROI{val1},'pos_ADC_masks');  
         end
         if isfield(ROI{val1},'aux_pos_ls_ADC') && ...
                 isfield(ROI{val2},'aux_pos_ls_ADC')
-            ROI{val1} = rmfield(ROI{val1},'aux_pos_ls_ADC'); %IC
+            ROI{val1} = rmfield(ROI{val1},'aux_pos_ls_ADC');  
         end
         if isfield(ROI{val1},'RoiSegmentationPixelIdxListADC') && ...
                 isfield(ROI{val2},'RoiSegmentationPixelIdxListADC')
-            ROI{val1} = rmfield(ROI{val1},'RoiSegmentationPixelIdxListADC'); %IC
+            ROI{val1} = rmfield(ROI{val1},'RoiSegmentationPixelIdxListADC'); 
         end
         if isfield(ROI{val1},'FinalMasksADC') && ...
                 isfield(ROI{val2},'FinalMasksADC')
-            ROI{val1} = rmfield(ROI{val1},'FinalMasksADC'); %IC
+            ROI{val1} = rmfield(ROI{val1},'FinalMasksADC');  
         end
         if isfield(ROI{val1},'slices_merged')
             ROI{val1} = rmfield(ROI{val1},'slices_merged');
@@ -154,13 +157,18 @@ if (ROI{val1}.Segmented && ROI{val2}.Segmented) || (~ROI{val1}.Segmented && ~ROI
         PopUp_Districts;
 
         save([Info.InputPathMAT gui_ROI.slash_pc_mac 'ROI.mat'],'ROI','-mat');
-        save([Info.InputPathMAT gui_ROI.slash_pc_mac 'Info.mat'],'Info','-mat'); %IC
+        save([Info.InputPathMAT gui_ROI.slash_pc_mac 'Info.mat'],'Info','-mat');  
         
+        % Remove folder related to 'ROI tail'
+        tailfolder = [Info.OutputPathMASK gui_ROI.slash_pc_mac 'MASK_District',num2str(ROI{val2}.Id)];
+        [status, message, messageid] = rmdir(tailfolder, 's');
+
+        disp(['Folder MASK_District', num2str(ROI{val2}.Id), ' has been deleted'])
         disp(['ROI ', num2str(val2), ' has been attached to ROI ', num2str(val1)])
     end
 
     GUI_Check_T1;
 else
-    msgbox('Error: one district has not been analysed yet') %IC 3/11
+    msgbox('Error: one district has not been analysed yet')  
 end
 

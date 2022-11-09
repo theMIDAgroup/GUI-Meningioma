@@ -1,10 +1,10 @@
 %% Delete_maskADC
-% LISCOMP Lab 2021- 2022, https://liscomp.dima.unige.it
+% LISCOMP Lab 2021 - 2022, https://liscomp.dima.unige.it
 % -------------------------------------------------------------------------
 % DESCRIPTION:
 % This function deletes the ADC mask currently showing on the GUI ADC.
 % -------------------------------------------------------------------------
-%%%% called by: GUI_Check_ADC(), button "Delete current mask"
+%%%% called by: GUI_Check_ADC(), button 'Delete current mask'
 %%%% call: Show_ROI_ADC() 
 
 global ROI

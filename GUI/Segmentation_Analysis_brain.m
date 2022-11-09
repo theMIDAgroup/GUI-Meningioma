@@ -1,5 +1,5 @@
 %% Segmentation_Analysis_brain()
-% LISCOMP Lab 2021- 2022, https://liscomp.dima.unige.it
+% LISCOMP Lab 2021 - 2022, https://liscomp.dima.unige.it
 % -------------------------------------------------------------------------
 % DESCRIPTION: 
 % This function computes the segmentation of the tumours via active
@@ -354,10 +354,9 @@ for it = it_start:Nit
     ROI{val}.MasksSlicesBackward{it} = slice_bwd;
 end
 
-
-figure; blockPlot(level_set_3d)%[0,0,0],%'color','r','facealpha',.5,'edgecolor','none')
-figure; blockPlot(slices_forward)
-figure; blockPlot(slices_backward)
+% figure; blockPlot(level_set_3d)%[0,0,0],%'color','r','facealpha',.5,'edgecolor','none')
+% figure; blockPlot(slices_forward)
+% figure; blockPlot(slices_backward)
 
 
 % Coefficients that estimate the difference between forward and backward

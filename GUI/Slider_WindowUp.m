@@ -1,5 +1,5 @@
 %% Slider_WindowUp()
-% LISCOMP Lab 2021- 2022, https://liscomp.dima.unige.it
+% LISCOMP Lab 2021 - 2022, https://liscomp.dima.unige.it
 % -------------------------------------------------------------------------
 % DESCRIPTION: 
 % This function changes the CLim of the Hounsfield values in the GUI ROI.

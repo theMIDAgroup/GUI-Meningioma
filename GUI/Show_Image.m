@@ -1,5 +1,5 @@
 %% Show_Image()
-% LISCOMP Lab 2021- 2022, https://liscomp.dima.unige.it
+% LISCOMP Lab 2021 - 2022, https://liscomp.dima.unige.it
 % -------------------------------------------------------------------------
 % DESCRIPTION: 
 % This function selects the MR image to show: it reads the associated DICOM

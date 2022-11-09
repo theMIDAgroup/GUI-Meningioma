@@ -1,5 +1,5 @@
 %% [] = Roi_Fill_PixelIdxList()
-% LISCOMP Lab 2021- 2022, https://liscomp.dima.unige.it
+% LISCOMP Lab 2021 - 2022, https://liscomp.dima.unige.it
 % -------------------------------------------------------------------------
 % DESCRIPTION: 
 % This function fills the interior part of the ROI, representing the

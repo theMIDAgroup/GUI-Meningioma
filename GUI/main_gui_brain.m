@@ -1,5 +1,5 @@
 %% main_gui_brain()
-% LISCOMP Lab 2021- 2022, https://liscomp.dima.unige.it
+% LISCOMP Lab 2021 - 2022, https://liscomp.dima.unige.it
 % -------------------------------------------------------------------------
 % DESCRIPTION: 
 % This function calls the gui for the software where one can load the
@@ -17,13 +17,13 @@
 %%%%        Roi_Poly
 %%%%        Roi_End
 %%%%        Enable_Roi
-%%%%        Enable_Dicom
 %%%%        Reset_Roi
 %%%%        Reset_All
 %%%%        Save_All
 %%%%        DeleteSlices
 %%%%        AppendROIs
 %%%%        Merge_sameROI
+%%%%        Merge_sameROI3
 %%%%        CheckT1
 %%%%        CheckADC
 %%%%        radiomics_T1_and_Continue
@@ -62,7 +62,7 @@ position(1,2)=round((scrsz(1,4)-position(1,4))/2);
 vect_pixel=[1920 1058 1920 1058];
 vect_pixel_screen=[scrsz(1,3),scrsz(1,4),scrsz(1,3),scrsz(1,4)];
 pos.scale_factor=(vect_pixel_screen./vect_pixel).*[screen_x/.6 screen_y/.7 screen_x/.6 screen_y/.7];
-gui_ROI.scale_factor=(vect_pixel_screen./vect_pixel).*[screen_x/.6 screen_y/.7 screen_x/.6 screen_y/.7]; % VC
+gui_ROI.scale_factor=(vect_pixel_screen./vect_pixel).*[screen_x/.6 screen_y/.7 screen_x/.6 screen_y/.7];  
 pos.FIGURE=position;
 
 %%%% PANEL LOAD - position
@@ -88,7 +88,7 @@ pos.PANELgui_check.panel=round([820,110,330,120].*pos.scale_factor);
 %%%% PANEL radiomics quantization - position  
 pos.PANELquantAlgo.panel=round([820,15,330,85].*pos.scale_factor); 
 
-pos.PANELax.ax=round([-30,0,575,575].*pos.scale_factor); % VC
+pos.PANELax.ax=round([-30,0,575,575].*pos.scale_factor); 
 pos.PANELax.SLIDERimage=round([60,580,330,25].*pos.scale_factor);
 pos.PANELax.SLIDERcontrast=round([420,65,25,535].*pos.scale_factor);
 pos.PANELax.SLIDERwindowUp_edit=round([450,500,80,25].*pos.scale_factor);
@@ -98,7 +98,7 @@ pos.PANELax.SLIDERwindowDown_push=round([450,50,80,25].*pos.scale_factor);
 pos.PANELax.ZoomIn=round([450,310,25,25].*pos.scale_factor);
 pos.PANELax.ZoomOut=round([450,270,25,25].*pos.scale_factor);
 pos.PANELax.TXT=round([-60,605,575,27].*pos.scale_factor);
-pos.PANELax.colorbar=round([100,25,25,505].*pos.scale_factor); %VC 
+pos.PANELax.colorbar=round([100,25,25,505].*pos.scale_factor); 
 
 pos.PANELdelete_slices.which_tumour=round([150,85,60,28].*pos.scale_factor);
 pos.PANELdelete_slices.new_Start=round([150,50,60,28].*pos.scale_factor);

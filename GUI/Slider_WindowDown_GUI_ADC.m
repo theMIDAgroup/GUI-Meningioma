@@ -1,5 +1,5 @@
 %% Slider_WindowDown_GUI_ADC()
-% LISCOMP Lab 2021- 2022, https://liscomp.dima.unige.it
+% LISCOMP Lab 2021 - 2022, https://liscomp.dima.unige.it
 % -------------------------------------------------------------------------
 % DESCRIPTION: 
 % This function changes the CLim of the Hounsfield values in the GUI ADC.
@@ -8,7 +8,6 @@
 
 function Slider_WindowDown_GUI_ADC()
 
-global pet_gui;
 global gui_ADC;
 
 set(gui_ADC.SLIDERcontrast,'value',0.5);

@@ -1,5 +1,5 @@
 %% radiomics_T1_and_Continue()
-% LISCOMP Lab 2021- 2022, https://liscomp.dima.unige.it
+% LISCOMP Lab 2021 - 2022, https://liscomp.dima.unige.it
 % -------------------------------------------------------------------------
 % DESCRIPTION: 
 % This function calls the radiomics for T1 images. If ADC exists, the

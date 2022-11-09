@@ -1,5 +1,5 @@
 %% PopUp_Quant()
-% LISCOMP Lab 2021- 2022, https://liscomp.dima.unige.it
+% LISCOMP Lab 2021 - 2022, https://liscomp.dima.unige.it
 % -------------------------------------------------------------------------
 % DESCRIPTION: 
 % This function opens a menu for the selection of the quantization for
@@ -8,7 +8,6 @@
 % Quantization types: Equal, Uniform, Lloyd, noQuant.
 % -------------------------------------------------------------------------
 %%%% called by: main_gui_brain() - panel 'Quantization algorithm'
-%%%% call:  
 
 function PopUp_Quant()
 global gui_ROI;

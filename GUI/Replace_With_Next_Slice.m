@@ -1,5 +1,5 @@
 %% Replace_With_Next_Slice()
-% LISCOMP Lab 2021- 2022, https://liscomp.dima.unige.it
+% LISCOMP Lab 2021 - 2022, https://liscomp.dima.unige.it
 % -------------------------------------------------------------------------
 % DESCRIPTION: 
 % This function replaces the polygon in the current slice with the one of 
@@ -18,10 +18,8 @@
 
 function Replace_With_Next_Slice()
 
-global gui_ROI
 global ROI
 global gui_T1
-global Info
   
 % the value of first_next = 1, 
 % it is assumed that one first checks the following slice, then comes back

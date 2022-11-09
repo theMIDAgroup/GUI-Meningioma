@@ -1,5 +1,5 @@
 %% Write_csv_Radiomics_merged()
-% LISCOMP Lab 2021- 2022, https://liscomp.dima.unige.it
+% LISCOMP Lab 2021 - 2022, https://liscomp.dima.unige.it
 % -------------------------------------------------------------------------
 % DESCRIPTION: 
 % This function writes the csv file containing the radiomics features
@@ -96,7 +96,7 @@ if exist(output_file_name,'file')
     delete(output_file_name);
 end
 
-writetable(T,output_file_name,'Sheet',1,'Range','A1')  
+writetable(T,output_file_name)
 
 end
 

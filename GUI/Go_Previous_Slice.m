@@ -1,5 +1,5 @@
 %% Go_Previous_Slice()
-% LISCOMP Lab 2021- 2022, https://liscomp.dima.unige.it
+% LISCOMP Lab 2021 - 2022, https://liscomp.dima.unige.it
 % -------------------------------------------------------------------------
 % DESCRIPTION: 
 % This function saves the changes of the current mask in gui_T1 and sets 
@@ -60,7 +60,7 @@ else
         Show_ROI(gui_T1.val,gui_T1.it2show)
         
         set(gui_T1.Next_slice,'enable','on')
-        set(gui_T1.Done,'enable','off')
+        %set(gui_T1.Done,'enable','off') % VC
     else
         set(gui_T1.Previous_slice,'enable','off')  
         set(gui_T1.Next_slice,'enable','on')
@@ -88,5 +88,16 @@ if gui_T1.it2show == gui_T1.SlicesList{gui_T1.val}(gui_T1.NumSlices{gui_T1.val})
 else
     set(gui_T1.replace_with_next,'enable','on')
 end
+
+% Set the contrast as in the following slice
+t = get(gui_T1.SLIDERcontrast,'value');
+CLim_min = double(gui_T1.sup_hu)*(t-.5)+double(gui_T1.inf_hu);
+CLim_max = double(gui_T1.sup_hu)*(t-.5)+double(gui_T1.sup_hu);
+if CLim_min>CLim_max
+    CLim_min = CLim_max-10;
+end
+set(gui_T1.ax, 'CLim', [CLim_min CLim_max]);
+set(gui_T1.ax_ls, 'CLim', [CLim_min CLim_max]);
+set(gui_T1.ax_fwd, 'CLim', [CLim_min CLim_max]);
 
 end

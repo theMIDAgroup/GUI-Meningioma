@@ -1,5 +1,5 @@
 %% Replace_With_Previous_Slice()
-% LISCOMP Lab 2021- 2022, https://liscomp.dima.unige.it
+% LISCOMP Lab 2021 - 2022, https://liscomp.dima.unige.it
 % -------------------------------------------------------------------------
 % DESCRIPTION: 
 % This function replaces the polygon in the current slice with the one of 
@@ -18,10 +18,8 @@
 
 function Replace_With_Previous_Slice()
 
-global gui_ROI
 global ROI
 global gui_T1
-global Info
 
 % CASE 1: the previous choice was = 1
 if ROI{gui_T1.val}.SliceChoice(gui_T1.SlicesList{gui_T1.val}(gui_T1.k - 1))==1

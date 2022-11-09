@@ -1,5 +1,5 @@
 %% Enable_MouseControl()
-% LISCOMP Lab 2021- 2022, https://liscomp.dima.unige.it
+% LISCOMP Lab 2021 - 2022, https://liscomp.dima.unige.it
 % -------------------------------------------------------------------------
 % DESCRIPTION: 
 % This function enables some commands for zooming with scrollwheel and 

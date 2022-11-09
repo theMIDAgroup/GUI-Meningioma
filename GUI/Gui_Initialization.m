@@ -1,8 +1,8 @@
 %% Gui_Initialization()
-% LISCOMP Lab 2021- 2022, https://liscomp.dima.unige.it
+% LISCOMP Lab 2021 - 2022, https://liscomp.dima.unige.it
 % -------------------------------------------------------------------------
 % DESCRIPTION: 
-% This function sets the inital parameters for the gui, enabling buttons 
+% This function sets the inital parameters for the GUI, enabling buttons 
 % and panels.
 % -------------------------------------------------------------------------
 %%%% called by: Load_Data()

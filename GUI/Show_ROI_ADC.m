@@ -1,5 +1,5 @@
 %% Show_ROI_ADC()
-% LISCOMP Lab 2021- 2022, https://liscomp.dima.unige.it
+% LISCOMP Lab 2021 - 2022, https://liscomp.dima.unige.it
 % -------------------------------------------------------------------------
 % DESCRIPTION: 
 % This function is used to show the current slice of the MR image (ADC) and

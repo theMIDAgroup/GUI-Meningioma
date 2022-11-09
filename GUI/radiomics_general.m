@@ -1,5 +1,5 @@
 %% radiomics_general()
-% LISCOMP Lab 2021- 2022, https://liscomp.dima.unige.it
+% LISCOMP Lab 2021 - 2022, https://liscomp.dima.unige.it
 % -------------------------------------------------------------------------
 % DESCRIPTION: 
 % This function computes the 3D radiomics features associated to each ROI
@@ -100,6 +100,11 @@ end
             
 Write_csv_Radiomics(globalTextures_field_name,matrix_based_textures_field_name,...
                 nonTexture_field_name,output_file_name);
-disp('radiomics 3D done!')
+
+if contains(mask_img,'adc') 
+    disp('Radiomics ADC 3D done!')
+else 
+    disp('Radiomics T1 3D done!')
+end
 
 end

@@ -1,5 +1,5 @@
 %% mask_adc_nii2mat()
-% LISCOMP Lab 2021- 2022, https://liscomp.dima.unige.it
+% LISCOMP Lab 2021 - 2022, https://liscomp.dima.unige.it
 % -------------------------------------------------------------------------
 % DESCRIPTION: 
 % This function transforms the ADC volume mask from nifti to mat format and 

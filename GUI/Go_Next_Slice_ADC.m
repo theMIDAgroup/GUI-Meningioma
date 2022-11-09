@@ -1,5 +1,5 @@
 %% Go_Next_Slice_ADC()
-% LISCOMP Lab 2021- 2022, https://liscomp.dima.unige.it
+% LISCOMP Lab 2021 - 2022, https://liscomp.dima.unige.it
 % -------------------------------------------------------------------------
 % DESCRIPTION: 
 % This function saves the changes of the current mask (if it exists) in 
@@ -80,6 +80,16 @@ if gui_ADC.it2show == gui_ADC.SlicesList{gui_ADC.val}(gui_ADC.NumSlices{gui_ADC.
 else
     set(gui_ADC.replace_with_next,'enable','on')
 end
+
+% Set the contrast as in the previous slice
+t = get(gui_ADC.SLIDERcontrast,'value');
+CLim_min = double(gui_ADC.sup_hu)*(t-.5)+double(gui_ADC.inf_hu);
+CLim_max = double(gui_ADC.sup_hu)*(t-.5)+double(gui_ADC.sup_hu);
+if CLim_min>CLim_max
+    CLim_min = CLim_max-10;
+end
+set(gui_ADC.ax, 'CLim', [CLim_min CLim_max]);
+set(gui_ADC.ax_ls, 'CLim', [CLim_min CLim_max]);
 
 end
 

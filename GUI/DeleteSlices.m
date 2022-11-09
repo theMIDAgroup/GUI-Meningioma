@@ -1,19 +1,19 @@
 %% DeleteSlices
-% LISCOMP Lab 2021- 2022, https://liscomp.dima.unige.it
+% LISCOMP Lab 2021 - 2022, https://liscomp.dima.unige.it
 % -------------------------------------------------------------------------
 % DESCRIPTION:
-% This function allows one to remove some slices from the selected ROI.
-% - ROI is the ROI from which one aims to remove slices from
-% - NEW START is the new first slice of the ROI
-% - NEW END is the new last slice of the ROI
-% - click DELETE to update the selected ROI
+% This function allows the user to remove slices from the selected ROI.
+% - 'ROI' is the number of ROI from which one aims to remove slices
+% - 'NEW START' is the new first slice of the ROI
+% - 'NEW END' is the new last slice of the ROI
+% - click 'DELETE' to update the selected ROI
 % You can use this function
 % - just after you create the ROI (for the first time)
 % - when the analysis has finished but you want to modify your ROI (then
-%   click START ANALYSIS and check all the slices again)
+%   click 'START ANALYSIS' and check all the slices again)
 % The global variable ROI is saved in any of these cases.
 % -------------------------------------------------------------------------
-%%%% called by: main_gui_brain(), button "DELETE"
+%%%% called by: main_gui_brain(), button 'DELETE'
 %%%% call: PopUp_Districts()
 
 global ROI
@@ -154,22 +154,22 @@ else
 % mask is modified, hence the ROI vectors containing ADC fields have to be
 % emptied
 if isfield(ROI{val},'MasksADC')
-    ROI{val} = rmfield(ROI{val},'MasksADC'); %IC
+    ROI{val} = rmfield(ROI{val},'MasksADC'); 
 end
 if isfield(ROI{val},'first_next_ADC')
-    ROI{val} = rmfield(ROI{val},'first_next_ADC'); %IC
+    ROI{val} = rmfield(ROI{val},'first_next_ADC'); 
 end
 if isfield(ROI{val},'pos_ADC_masks')
-    ROI{val} = rmfield(ROI{val},'pos_ADC_masks'); %IC
+    ROI{val} = rmfield(ROI{val},'pos_ADC_masks'); 
 end
 if isfield(ROI{val},'aux_pos_ls_ADC')
-    ROI{val} = rmfield(ROI{val},'aux_pos_ls_ADC');%IC
+    ROI{val} = rmfield(ROI{val},'aux_pos_ls_ADC'); 
 end
 if isfield(ROI{val},'RoiSegmentationPixelIdxListADC')
-     ROI{val} = rmfield(ROI{val},'RoiSegmentationPixelIdxListADC');%IC
+     ROI{val} = rmfield(ROI{val},'RoiSegmentationPixelIdxListADC'); 
 end
 if isfield(ROI{val},'FinalMasksADC')
-    ROI{val} = rmfield(ROI{val},'FinalMasksADC');%IC
+    ROI{val} = rmfield(ROI{val},'FinalMasksADC'); 
 end
 if isfield(ROI{val},'slices_merged')
     ROI{val} = rmfield(ROI{val},'slices_merged');
@@ -204,7 +204,7 @@ set(gui_ROI.PANELroi.PANEL3.TXT2b,'string',num2str(ROI{val}.EndMR))
 PopUp_Districts;
 
 save([Info.InputPathMAT gui_ROI.slash_pc_mac 'ROI.mat'],'ROI','-mat'); 
-save([Info.InputPathMAT gui_ROI.slash_pc_mac 'Info.mat'],'Info','-mat'); %IC
+save([Info.InputPathMAT gui_ROI.slash_pc_mac 'Info.mat'],'Info','-mat'); 
 
 disp('The selected slices have been deleted')  
 

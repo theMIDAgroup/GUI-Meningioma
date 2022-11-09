@@ -1,5 +1,5 @@
 %% [seg, aux_seg]= level_set_segmentation(I,init_mask,max_its,min_its,alpha)
-% LISCOMP Lab 2021- 2022, https://liscomp.dima.unige.it
+% LISCOMP Lab 2021 - 2022, https://liscomp.dima.unige.it
 % -------------------------------------------------------------------------
 % DESCRIPTION: 
 % 

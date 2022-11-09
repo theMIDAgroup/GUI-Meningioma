@@ -1,11 +1,11 @@
 %% CheckADC()
-% LISCOMP Lab 2021- 2022, https://liscomp.dima.unige.it
+% LISCOMP Lab 2021 - 2022, https://liscomp.dima.unige.it
 % -------------------------------------------------------------------------
 % DESCRIPTION: 
 % This function checks if ADC segmentation is already present. If yes, then
 % it calls GUI_Check_ADC, otherwise it shows a warning message box. 
 % -------------------------------------------------------------------------
-%%%% called by: main_gui_brain(), button "Check segmentation ADC on GUI"
+%%%% called by: main_gui_brain(), button 'Check ADC segmentation'
 %%%% call: GUI_Check_ADC()
 
 function CheckADC()

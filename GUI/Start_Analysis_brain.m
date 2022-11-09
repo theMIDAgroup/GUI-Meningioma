@@ -1,5 +1,5 @@
 %% Start_Analysis_brain
-% LISCOMP Lab 2021- 2022 https://liscomp.dima.unige.it
+% LISCOMP Lab 2021 - 2022 https://liscomp.dima.unige.it
 % -------------------------------------------------------------------------
 % DESCRIPTION: 
 % Functions for the segmentation and outputs production.
@@ -9,7 +9,6 @@
 %%%%        Segmentation_Analysis_brain()
 %%%%        GUI_Check_T1()
 
-global gui_ROI;
 global ROI;
 
 Save_All;

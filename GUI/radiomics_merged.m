@@ -1,5 +1,5 @@
 %% radiomics_merged()
-% LISCOMP Lab 2021- 2022, https://liscomp.dima.unige.it
+% LISCOMP Lab 2021 - 2022, https://liscomp.dima.unige.it
 % -------------------------------------------------------------------------
 % DESCRIPTION: 
 % This function computes the 3D radiomics features associated to each new
@@ -7,6 +7,7 @@
 % GUI). The utilized package refers to <https://github.com/mvallieres/radiomics/>.
 % -------------------------------------------------------------------------
 %%%% called by: Merge_sameROI()
+%%%%            Merge_sameROI3()
 %%%% call: Write_csv_Radiomics_merged()
 
 function radiomics_merged(mri_img, volume_image_field_name,...
@@ -92,7 +93,11 @@ radiomics_merge{1}= setfield(radiomics_merge{1},matrix_based_textures_field_name
 Write_csv_Radiomics_merged(globalTextures_field_name,matrix_based_textures_field_name,...
                 nonTexture_field_name,output_file_name);
 
-disp('Radiomics 3D merged done!')
+if contains(mask_img,'adc') 
+    disp('Radiomics merged ADC 3D done!')
+else 
+    disp('Radiomics merged T1 3D done!')
+end
 
 end
 

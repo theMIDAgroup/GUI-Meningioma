@@ -1,11 +1,11 @@
 %% Save_All()
-% LISCOMP Lab 2021- 2022, https://liscomp.dima.unige.it
+% LISCOMP Lab 2021 - 2022, https://liscomp.dima.unige.it
 % -------------------------------------------------------------------------
 % DESCRIPTION: 
 % This function saves all the existing ROIs in file ROI.mat
 % -------------------------------------------------------------------------
 %%%% called by: Load_Data()
-%%%%            main_gui_brain(), button "SAVE ALL"
+%%%%            main_gui_brain(), button 'SAVE ALL'
 %%%%            Start_Analysis_brain()
 %%%% call: Roi_PixelIdxList_brain()
 
