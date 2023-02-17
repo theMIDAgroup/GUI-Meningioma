@@ -85,21 +85,26 @@ while FilesList(1).name(1) == '.'
 end
 
 %% VC
-% number_of_file = length(FilesList);
-% for it = 1 : number_of_file
-%     INFO = dicominfo([Info.InputPath,gui_ROI.slash_pc_mac, FilesList(it).name]);
-%     if isfield(INFO,'SliceLocation')
-%         temp_index(it,:) = [INFO.SeriesNumber , INFO.InstanceNumber,INFO.SliceLocation, it, INFO.ImagePositionPatient(3)];
-%     else
-%         temp_index(it,:) = [INFO.SeriesNumber , INFO.InstanceNumber,0, it, 0];
-%     end
-%     temp_modality{it} = INFO.Modality;
-% end
-% clear INFO;
-% temp_index = sortrows(temp_index,3); % VC messo 3
+number_of_file = length(FilesList);
+for it = 1 : number_of_file
+    INFO = dicominfo([Info.InputPath,gui_ROI.slash_pc_mac, FilesList(it).name]);
+    if isfield(INFO,'SliceLocation')
+        temp_index(it,:) = [INFO.SeriesNumber , INFO.InstanceNumber,INFO.SliceLocation, it, INFO.ImagePositionPatient(3)];
+    else
+        temp_index(it,:) = [INFO.SeriesNumber , INFO.InstanceNumber,0, it, 0];
+    end
+    temp_modality{it} = INFO.Modality;
+end
+clear INFO;
+temp_index = sortrows(temp_index,3); % VC messo 3
+[~,index_cambio_acquisizione_start] = unique(temp_index(:,1),'first');
+[~,index_cambio_acquisizione_end] = unique(temp_index(:,1),'last');
+index1 = index_cambio_acquisizione_start;
+index2 = index_cambio_acquisizione_end;
+
 
 %%
-Info.FilesListADC = FilesList;
+Info.FilesListADC = FilesList(temp_index(index1:index2,4));
 
 save([Info.InputPathMAT gui_ROI.slash_pc_mac 'ROI.mat'],'ROI','-mat');   
 save([Info.InputPathMAT gui_ROI.slash_pc_mac 'Info.mat'],'Info','-mat');
