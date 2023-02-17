@@ -84,6 +84,21 @@ while FilesList(1).name(1) == '.'
     FilesList(1) = [];
 end
 
+%% VC
+% number_of_file = length(FilesList);
+% for it = 1 : number_of_file
+%     INFO = dicominfo([Info.InputPath,gui_ROI.slash_pc_mac, FilesList(it).name]);
+%     if isfield(INFO,'SliceLocation')
+%         temp_index(it,:) = [INFO.SeriesNumber , INFO.InstanceNumber,INFO.SliceLocation, it, INFO.ImagePositionPatient(3)];
+%     else
+%         temp_index(it,:) = [INFO.SeriesNumber , INFO.InstanceNumber,0, it, 0];
+%     end
+%     temp_modality{it} = INFO.Modality;
+% end
+% clear INFO;
+% temp_index = sortrows(temp_index,3); % VC messo 3
+
+%%
 Info.FilesListADC = FilesList;
 
 save([Info.InputPathMAT gui_ROI.slash_pc_mac 'ROI.mat'],'ROI','-mat');   

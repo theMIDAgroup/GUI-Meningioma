@@ -22,6 +22,7 @@ ylim = get(gui_ADC.ax,'ylim');
 
 I_MR = ...
    dicomread([Info.ADC_directory, gui_ROI.slash_pc_mac,Info.FilesListADC(it).name]);
+%I_MR = dicomread([Info.InputPath, gui_ROI.slash_pc_mac, Info.FileMR(gui_ROI.SliceNumber).name]);
 
 % I_MR_zoom = I_MR(ROI{val}.RoiRegion(it,3):ROI{val}.RoiRegion(it,4),...
 %         ROI{val}.RoiRegion(it,1):ROI{val}.RoiRegion(it,2));
