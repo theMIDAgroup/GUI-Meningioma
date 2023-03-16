@@ -74,7 +74,7 @@ str_wbar = [Info.PatientName.FamilyName ' ' Info.PatientName.GivenName ' Prepari
 waitbar(0.33,w,str_wbar);
 
 Write_3D_Masks_general(Info.SizeADC(2), Info.SizeADC(1), Info.SizeADC(3),'RoiSegmentationPixelIdxListADC',...
-    'FinalMasksADC','volume_mask_ADC.mat','StartMR','EndMR');   % careful with flipped sizes
+    'FinalMasksADC','volume_mask_adc.mat','StartMR','EndMR');   % careful with flipped sizes
 
 str_wbar = [Info.PatientName.FamilyName ' ' Info.PatientName.GivenName ' Radiomics analysis ADC in progress'];
 waitbar(0.67, w,str_wbar);

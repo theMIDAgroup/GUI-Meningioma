@@ -32,11 +32,11 @@ for val = 1 : Nval
             'MASK_' regexprep(ROI{val}.Name,'[^\w'']','')];
         volume_nifti = niftiread(fullfile(adc_nii_directory, 'ADC_mask.nii.gz'));
         vol_aux = double(volume_nifti);
-        volume_mask_adc = zeros(size(vol_aux));
-        volume_mask_adc(vol_aux~=0) = 1;
+        volume_mask = zeros(size(vol_aux));
+        volume_mask(vol_aux~=0) = 1;
         str_save = [adc_nii_directory gui_ROI.slash_pc_mac 'volume_mask_adc.mat'];
-        save(str_save,'volume_mask_adc')
-        ROI{val}.MasksADC = volume_mask_adc;  
+        save(str_save,'volume_mask')
+        ROI{val}.MasksADC = volume_mask;  
     end
 
 end

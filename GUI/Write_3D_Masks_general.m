@@ -38,7 +38,7 @@ for val = 1 : Nval
             'MASK_' regexprep(ROI{val}.Name,'[^\w'']','')];
         
         if ~exist(output_directory,'dir'), mkdir(output_directory); end
-        if ~contains(outputName,"ADC")  % if T1 case
+        if ~contains(outputName,"adc")  % if T1 case
             last_slice = getfield(ROI{val},last_slice_mask);
             initial_slice = getfield(ROI{val},initial_slice_mask);
         else
