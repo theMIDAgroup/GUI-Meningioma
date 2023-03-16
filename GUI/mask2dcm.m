@@ -110,12 +110,12 @@ save([Info.InputPathMAT gui_ROI.slash_pc_mac 'Info.mat'],'Info','-mat');
 
 disp('End of T1 analysis and radiomics')
 
-% with Windows and Linux the Matlab code ends here and one should continue on Python,
+% with Windows the Matlab code ends here and one should continue on Python,
 % with coregistrationT1_ADC.py and maskT1_2_maskADC.py. One should then
 % reopen Matlab and run mask_adc_nii2mat.m 
-% with Mac, it is possible to continue
+% with Mac and Linux, it is possible to continue
 if ispc; disp('Go to Python and run coregistrationT1_ADC.py and maskT1_2_maskADC.py');
-elseif ismac
+elseif ismac || isunix
     %% FSL
     fsldir = '/usr/local/fsl';
     fsldirmpath = sprintf('%s/etc/matlab',fsldir);
