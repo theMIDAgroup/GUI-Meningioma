@@ -10,7 +10,7 @@
 %%%% call:      dicom23D()
 
 function Write_3D_Masks_general(row, col, num_slices, pixelIdxList,...
-    finalMasks, outputName, initial_slice_mask, last_slice_mask)
+    finalMasks, outputName, initial_slice_mask, last_slice_mask, enable_field_name)
 
 global ROI;
 global Info;
@@ -29,8 +29,9 @@ str_save = [Info.OutputPathMASK gui_ROI.slash_pc_mac 'volume_image.mat'];
 save(str_save,'volume_image')
 
 for val = 1 : Nval 
-    
-    if ROI{val}.Enable
+    enable = getfield(ROI{val},enable_field_name); 
+
+    if enable
         % Initialize the volume
         volume_mask = zeros(row, col, num_slices);
 

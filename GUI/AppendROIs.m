@@ -107,6 +107,10 @@ if (ROI{val1}.Segmented && ROI{val2}.Segmented) || (~ROI{val1}.Segmented && ~ROI
         % Introduced with ADC analysis - ADC analysis has to be done again
         % if the mask is modified, hence the ROI vectors containing ADC
         % fields have to be removed
+        if isfield(ROI{val1},'EnableADC') && ...
+                isfield(ROI{val2},'EnableADC')
+            ROI{val1} = rmfield(ROI{val1},'EnableADC');
+        end
         if isfield(ROI{val1},'MasksADC') && ...
                 isfield(ROI{val2},'MasksADC')
             ROI{val1} = rmfield(ROI{val1},'MasksADC');  
@@ -169,6 +173,6 @@ if (ROI{val1}.Segmented && ROI{val2}.Segmented) || (~ROI{val1}.Segmented && ~ROI
 
     GUI_Check_T1;
 else
-    msgbox('Error: one district has not been analysed yet')  
+    msgbox('Error: one district has not been analyzed yet')  
 end
 

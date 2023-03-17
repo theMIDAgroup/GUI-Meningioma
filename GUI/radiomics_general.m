@@ -13,7 +13,7 @@
 function radiomics_general(mri_img, volume_image_field_name,...
     mask_img, volume_mask_field_name, globalTextures_field_name,...
     matrix_based_textures_field_name, nonTexture_field_name, output_file_name,...
-    pixelW, sliceS, quantAlgo)
+    pixelW, sliceS, quantAlgo,enable_field_name)
 
 global ROI
 global Info
@@ -37,8 +37,9 @@ Nval = length(ROI);
 radiomics = cell(1,Nval);
 
 for val = 1 : Nval
+    enable = getfield(ROI{val},enable_field_name);  
     
-    if ROI{val}.Enable  
+    if enable
         % Load mask for the val-th district  
         volume_mask = load(fullfile(Info.OutputPathMASK,...
             ['MASK_District' num2str(val)], mask_img));
@@ -99,7 +100,7 @@ for val = 1 : Nval
 end
             
 Write_csv_Radiomics(globalTextures_field_name,matrix_based_textures_field_name,...
-                nonTexture_field_name,output_file_name);
+                nonTexture_field_name,output_file_name,enable_field_name);
 
 if contains(mask_img,'adc') 
     disp('Radiomics ADC 3D done!')

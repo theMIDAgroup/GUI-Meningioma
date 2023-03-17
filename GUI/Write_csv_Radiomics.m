@@ -8,7 +8,7 @@
 %%%% called by: radiomics_general()
 
 function Write_csv_Radiomics(globalTextures_field_name,...
-    matrix_based_textures_field_name, nonTexture_field_name, output_file_name)
+    matrix_based_textures_field_name, nonTexture_field_name, output_file_name,enable_field_name)
 
 global ROI;
 global Info;
@@ -22,7 +22,9 @@ T = table();
 Nval = length(ROI);
 
 for val = 1 : Nval
-    if ROI{val}.Enable
+    enable = getfield(ROI{val},enable_field_name);  
+
+    if enable
 
         % Convert cell to a table and use first row as variable names
         aux1 = getfield(radiomics{1,val},globalTextures_field_name);

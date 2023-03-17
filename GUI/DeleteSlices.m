@@ -153,6 +153,9 @@ else
 % Introduced with ADC analysis - ADC analysis has to be done again if the
 % mask is modified, hence the ROI vectors containing ADC fields have to be
 % emptied
+if isfield(ROI{val},'EnableADC')
+    ROI{val} = rmfield(ROI{val},'EnableADC');
+end
 if isfield(ROI{val},'MasksADC')
     ROI{val} = rmfield(ROI{val},'MasksADC'); 
 end

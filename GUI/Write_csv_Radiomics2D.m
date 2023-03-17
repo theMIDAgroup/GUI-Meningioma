@@ -8,7 +8,7 @@
 %%%% called by: radiomics_general2D()
 
 function Write_csv_Radiomics2D(number_of_slices_ROIonly_field_name, globalTextures_field_name,...
-    matrix_based_textures_field_name, nonTexture_field_name, output_file_name)
+    matrix_based_textures_field_name, nonTexture_field_name, output_file_name,enable_field_name)
 
 global ROI;
 global Info;
@@ -22,7 +22,9 @@ T = table();
 Nval = length(ROI);
 
 for val = 1 : Nval
-    if ROI{val}.Enable
+    enable = getfield(ROI{val},enable_field_name);  
+
+    if enable
 
          % Load number of slices after resize and count them
         number_of_slices_after_resize = getfield(ROI{val},number_of_slices_ROIonly_field_name);

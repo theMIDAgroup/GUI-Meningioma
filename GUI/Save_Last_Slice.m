@@ -87,7 +87,7 @@ str_wbar = [Info.PatientName.FamilyName ' ' Info.PatientName.GivenName ' Prepari
 waitbar(0.67,w,str_wbar);
 
 Write_3D_Masks_general(Info.NumRow, Info.NumCol, Info.NumberFileMR,'RoiSegmentationPixelIdxList',...
-    'FinalMasks','volume_mask.mat','StartMR','EndMR');
+    'FinalMasks','volume_mask.mat','StartMR','EndMR','Enable');
 
 % Save ROI and Info in the folder T1_MAT
 save([Info.InputPathMAT gui_ROI.slash_pc_mac 'ROI.mat'],'ROI','-mat');   

@@ -58,7 +58,21 @@ if isfield(ROI{it},'aux_pos_fwd')
     ROI{it} = rmfield(ROI{it},'aux_pos_fwd');
 end
 
+if isfield(ROI{it},'slices_merged')
+    ROI{it} = rmfield(ROI{it},'slices_merged');
+end
+if isfield(ROI{it},'number_of_slices_after_resize')
+    ROI{it} = rmfield(ROI{it},'number_of_slices_after_resize');
+end
+if isfield(ROI{it},'number_of_slices_after_resize_merged')
+    ROI{it} = rmfield(ROI{it},'number_of_slices_after_resize_merged');
+end
+
+
 % ADC related
+if isfield(ROI{it},'EnableADC')
+    ROI{it} = rmfield(ROI{it},'EnableADC');
+end
 if isfield(ROI{it},'MasksADC')
     ROI{it} = rmfield(ROI{it},'MasksADC');end
 if isfield(ROI{it},'first_next_ADC')
@@ -76,14 +90,8 @@ end
 if isfield(ROI{it},'FinalMasksADC')
     ROI{it} = rmfield(ROI{it},'FinalMasksADC');
 end
-if isfield(ROI{it},'slices_merged')
-    ROI{it} = rmfield(ROI{it},'slices_merged');
-end
 if isfield(ROI{it},'slices_merged_ADC')
     ROI{it} = rmfield(ROI{it},'slices_merged_ADC');
-end
-if isfield(ROI{it},'number_of_slices_after_resize')
-    ROI{it} = rmfield(ROI{it},'number_of_slices_after_resize');
 end
 if isfield(ROI{it},'number_of_slices_after_resize_ADC')
     ROI{it} = rmfield(ROI{it},'number_of_slices_after_resize_ADC');
@@ -91,12 +99,6 @@ end
 if isfield(ROI{it},'segmented_slices_adc')
     ROI{it} = rmfield(ROI{it},'segmented_slices_adc');
 end
-if isfield(ROI{it},'number_of_slices_after_resize_merged')
-    ROI{it} = rmfield(ROI{it},'number_of_slices_after_resize_merged');
-end
 if isfield(ROI{it},'number_of_slices_after_resize_merged_ADC')
     ROI{it} = rmfield(ROI{it},'number_of_slices_after_resize_merged_ADC');
 end
-
-end
-

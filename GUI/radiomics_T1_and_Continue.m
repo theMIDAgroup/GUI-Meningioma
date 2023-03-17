@@ -31,7 +31,8 @@ quantAlgo = gui_ROI.PopupValueQuant;
 % radiomics 2D (slice-wise)
 radiomics_general2D('volume_image.mat','volume_image','volume_mask.mat','volume_mask',...
                 'number_of_slices_after_resize','globalTextures','matrix_based_textures','nonTexture',...
-                [Info.OutputPathRadiomics gui_ROI.slash_pc_mac subj '_radiomics2D.csv'],Info.PixelSizeMR(1),Info.SliceThicknessMR, quantAlgo);
+                [Info.OutputPathRadiomics gui_ROI.slash_pc_mac subj '_radiomics2D.csv'],...
+                Info.PixelSizeMR(1),Info.SliceThicknessMR, quantAlgo,'Enable');
 
 str_wbar = [Info.PatientName.FamilyName ' ' Info.PatientName.GivenName ' Radiomics 2D done!'];
 waitbar(0.33, w,str_wbar);
@@ -39,7 +40,7 @@ waitbar(0.33, w,str_wbar);
 % radiomics 3D (on the volume)
 radiomics_general('volume_image.mat', 'volume_image', 'volume_mask.mat', 'volume_mask',...
     'globalTextures', 'matrix_based_textures', 'nonTexture',[Info.OutputPathRadiomics gui_ROI.slash_pc_mac subj '_radiomics.csv'],...
-    Info.PixelSizeMR(1),Info.SliceThicknessMR, quantAlgo);
+    Info.PixelSizeMR(1),Info.SliceThicknessMR, quantAlgo,'Enable');
 
 str_wbar = [Info.PatientName.FamilyName ' ' Info.PatientName.GivenName ' Radiomics 3D done!'];
 waitbar(0.67, w,str_wbar);
