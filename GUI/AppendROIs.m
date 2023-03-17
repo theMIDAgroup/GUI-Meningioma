@@ -107,32 +107,25 @@ if (ROI{val1}.Segmented && ROI{val2}.Segmented) || (~ROI{val1}.Segmented && ~ROI
         % Introduced with ADC analysis - ADC analysis has to be done again
         % if the mask is modified, hence the ROI vectors containing ADC
         % fields have to be removed
-        if isfield(ROI{val1},'EnableADC') && ...
-                isfield(ROI{val2},'EnableADC')
+        if isfield(ROI{val1},'EnableADC') 
             ROI{val1} = rmfield(ROI{val1},'EnableADC');
         end
-        if isfield(ROI{val1},'MasksADC') && ...
-                isfield(ROI{val2},'MasksADC')
+        if isfield(ROI{val1},'MasksADC') 
             ROI{val1} = rmfield(ROI{val1},'MasksADC');  
         end
-        if isfield(ROI{val1},'first_next_ADC') && ...
-                isfield(ROI{val2},'first_next_ADC')
+        if isfield(ROI{val1},'first_next_ADC') 
             ROI{val1} = rmfield(ROI{val1},'first_next_ADC');  
         end
-        if isfield(ROI{val1},'pos_ADC_masks') && ...
-                isfield(ROI{val2},'pos_ADC_masks')
+        if isfield(ROI{val1},'pos_ADC_masks') 
             ROI{val1} = rmfield(ROI{val1},'pos_ADC_masks');  
         end
-        if isfield(ROI{val1},'aux_pos_ls_ADC') && ...
-                isfield(ROI{val2},'aux_pos_ls_ADC')
+        if isfield(ROI{val1},'aux_pos_ls_ADC') 
             ROI{val1} = rmfield(ROI{val1},'aux_pos_ls_ADC');  
         end
-        if isfield(ROI{val1},'RoiSegmentationPixelIdxListADC') && ...
-                isfield(ROI{val2},'RoiSegmentationPixelIdxListADC')
+        if isfield(ROI{val1},'RoiSegmentationPixelIdxListADC') 
             ROI{val1} = rmfield(ROI{val1},'RoiSegmentationPixelIdxListADC'); 
         end
-        if isfield(ROI{val1},'FinalMasksADC') && ...
-                isfield(ROI{val2},'FinalMasksADC')
+        if isfield(ROI{val1},'FinalMasksADC') 
             ROI{val1} = rmfield(ROI{val1},'FinalMasksADC');  
         end
         if isfield(ROI{val1},'slices_merged')
