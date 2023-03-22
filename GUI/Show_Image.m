@@ -17,7 +17,7 @@ function Show_Image()
 global Info;
 global gui_ROI;
 
-xlim = get(gui_ROI.PANELax.ax,'xlim');
+xlim = get(gui_ROI.PANELax.ax,'xlim'); % VC
 ylim = get(gui_ROI.PANELax.ax,'ylim');
 
 gui_ROI.SliceNumber = round(get(gui_ROI.PANELax.SLIDERimage, 'Value')*(Info.NumberFileMR-1)+1);
@@ -26,8 +26,11 @@ set(gui_ROI.PANELax.TXT,'string',str);
 
 I_MR = dicomread([Info.InputPath, gui_ROI.slash_pc_mac, Info.FileMR(gui_ROI.SliceNumber).name]);
 
+% xlim = [0, size(I_MR,2)]; % VC
+% ylim = [0, size(I_MR,1)];
+
 imshow(I_MR,'parent',gui_ROI.PANELax.ax);
-set(gui_ROI.PANELax.ax, 'xlim', xlim,'ylim', ylim);
+set(gui_ROI.PANELax.ax, 'xlim', xlim ,'ylim', ylim);
 if gui_ROI.first_opening == 0
     gui_ROI.first_opening = 1;
     gui_ROI.PANELax.colorbar = colorbar('peer',gui_ROI.PANELax.ax,'horiz');

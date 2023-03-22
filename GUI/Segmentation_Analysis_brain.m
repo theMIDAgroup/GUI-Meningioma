@@ -41,7 +41,7 @@ for val = 1 : size(ROI,2)
         ROI{val}.SliceChoice = [];      
         
         % to clear up ADC related fields
-        if isfield(ROI{it},'EnableADC')
+        if isfield(ROI{val},'EnableADC')
             ROI{val} = rmfield(ROI{it},'EnableADC');
         end
         if isfield(ROI{val},'first_next_ADC')
